@@ -46,12 +46,12 @@
                                                      
                                                     <p> 1. Login with facebook</p>
                                                     <fb:login-button scope="public_profile,email,user_likes" onlogin="checkLoginState();"></fb:login-button>
-                                                    <div style="color:black;" id="status"></div>
+                                                    <div style="padding-top: 0.5em; color:black;" id="status"></div>
                                                     <!--<button style='background: none;' onclick="logout()">logout da facebook</button>-->
                                                     <p> 2. Compute your personality type<p>
                                                     <button disabled id="startbutton">Start!</button>
                                                     <br>                                    
-                                                    <div style="color:black;" id="computing"></div>
+                                                    <div style="padding-top: 0.5em; color:black;" id="computing"></div>
                                                     <div id="error"></div>
 							
 						</nav>
@@ -59,7 +59,7 @@
 
 				<!-- Footer -->
 					<footer id="footer">
-						<span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
+						<span class="copyright">&copy; Beat in a Bot. Design by: <a href="https://github.com/giulioverazzo">Giulio Verazzo</a>.</span>
 					</footer>
 
 			</div>
@@ -139,7 +139,7 @@
              document.getElementById("startbutton").addEventListener("click",function(){
                  
                 startbutton.disabled = true;
-                document.getElementById("computing").innerHTML = "Computing...";
+                document.getElementById("computing").innerHTML = "Processing...";
                 
                 const url = "http://localhost:8080/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name;
                 //const url = "https://bumpy-flute.glitch.me/server?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name;
@@ -156,9 +156,25 @@
                             startbutton.disabled = false;
                             
                         },
-                        error: function(error)
+                        error: function(XMLHttpRequest, textStatus, errorThrown)
                         {
-                            console.log(error);
+                            
+                            if (XMLHttpRequest.readyState == 4) {
+                                // HTTP error (can be checked by XMLHttpRequest.status and XMLHttpRequest.statusText)
+                                document.getElementById("computing").style.color = "red";
+                                document.getElementById("computing").innerHTML = XMLHttpRequest.status+""+XMLHttpRequest.statusText;
+                            }
+                            else if (XMLHttpRequest.readyState == 0) {
+                                // Network error (i.e. connection refused, access denied due to CORS, etc.)
+                                document.getElementById("computing").style.color = "red";
+                                document.getElementById("computing").innerHTML = "Network error, there was a problem contacting the server.";
+                            }
+                            else {
+                                // something weird is happening
+                                document.getElementById("computing").style.color = "red";
+                                document.getElementById("computing").innerHTML = "Very strange error, something bad happened";
+                            }
+                            startbutton.disabled = false;
                         }
                 });    
                  
@@ -170,27 +186,6 @@
           document.getElementById('status').innerHTML = 'Please log ' +
             'into this app.';
         }
-    }
-    
-    function predict(){
-        
-        const url = "http://localhost:3000/dialogflow";
-      //const url = "https://bumpy-flute.glitch.me/server?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name;
-                 
-                $.ajax({
-                        url: url,
-                        type: 'GET',
-                        success: function(response, textStatus, xhr)
-                        {
-                            
-                            console.log(response);
-                            console.log(textStatus);  
-                        },
-                        error: function(error)
-                        {
-                            console.log(error);
-                        }
-                }); 
     }
     
     /*** Handler del bottone Log in. Controlla lo stato del login e chiama la funzione che gestisce cosa fare ***/
