@@ -1037,3 +1037,8 @@
             color:blue;
             cursor: pointer;
         }
+        
+        #logo{
+            width: 30%;
+            max-width: 300px;
+        }
