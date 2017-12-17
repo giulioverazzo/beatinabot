@@ -119,7 +119,22 @@
     
     function statusChangeCallback(response) {
         
-            
+        var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            };
+
+        
         if (response.status === 'connected') {
             
             var fb_access_token = response.authResponse.accessToken;
@@ -141,7 +156,10 @@
                 startbutton.disabled = true;
                 document.getElementById("computing").innerHTML = "Processing...";
                 
-                const url = "https://714cff20.ngrok.io/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name;
+                var sessionId = getUrlParameter('sessionId');
+                console.log(sessionId);
+                
+                const url = "https://714cff20.ngrok.io/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name+"&sessionId="+sessionId;
                 //const url = "https://bumpy-flute.glitch.me/server?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name;
                  
                     $.ajax({
