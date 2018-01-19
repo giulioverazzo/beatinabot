@@ -159,7 +159,7 @@
                 var sessionId = getUrlParameter('sessionId');
                 console.log(sessionId);
                 
-                const url = "https://317da72b.ngrok.io/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name+"&sessionId="+sessionId;
+                const url = "https://cors-anywhere.herokuapp.com/http://datascience.ismb.it/beatinabot/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name+"&sessionId="+sessionId;
                 //const url = "https://bumpy-flute.glitch.me/server?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name;
                  
                     $.ajax({
