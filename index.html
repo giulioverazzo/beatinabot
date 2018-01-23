@@ -59,7 +59,7 @@
 
 				<!-- Footer -->
 					<footer id="footer">
-						<span class="copyright">&copy; Beat in a Bot. Design by: <a href="https://github.com/giulioverazzo">Giulio Verazzo</a>.</span>
+                                            <span class="copyright">&copy; Beat in a Bot. Click <a href=license.txt>here</a> to check our privacy policy.</span>
 					</footer>
 
 			</div>
@@ -160,7 +160,7 @@
                 console.log(sessionId);
                 
                 const url = "https://cors-anywhere.herokuapp.com/http://datascience.ismb.it/beatinabot/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name+"&sessionId="+sessionId;
-                //const url = "https://bumpy-flute.glitch.me/server?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name;
+                
                  
                     $.ajax({
                         url: url,
