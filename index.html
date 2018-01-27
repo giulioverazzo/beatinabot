@@ -52,7 +52,7 @@
                                                     <button disabled id="startbutton">Start!</button>
                                                     <br>                                    
                                                     <p style="font-size: 1em">Powered by <a href='https://applymagicsauce.com'>Apply Magic Sauce</a></p>
-                                                    <div style="padding-top: 0.5em; color:#cccc00;" id="computing"></div>
+                                                    <div style="padding-top: 0.5em; color:#FC7A36;"><b id="computing"></b></div>
                                                     <div id="continue" style="display: none">Say "continue" to the bot to get the result.</div>
                                                     <div id="error"></div>
 							
@@ -179,7 +179,8 @@
                         },
                         error: function(XMLHttpRequest, textStatus, errorThrown)
                         {
-                            
+                            document.getElementById("continue").style.display ="none";
+                          
                             if (XMLHttpRequest.readyState == 4) {
                                 // HTTP error (can be checked by XMLHttpRequest.status and XMLHttpRequest.statusText)
                                 document.getElementById("computing").style.color = "red";
