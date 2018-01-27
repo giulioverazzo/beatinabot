@@ -52,7 +52,7 @@
                                                     <button disabled id="startbutton">Start!</button>
                                                     <br>                                    
                                                     <div style="padding-top: 0.5em; color:black; font-size: 1.2em"><b id="computing"></b></div>
-                                                    <div id="continue" style="display: none">Say "continue" to the bot to get the result.</div>
+                                                    <div id="continue" style="display: none">Go <div style="text-decoration: underline;" onclick="goback()">back</div> to the bot and say him "continue".</div>
                                                     <div id="error"></div>
 							
 						
@@ -111,6 +111,10 @@
           statusChangeCallback(response);
         });
     };
+    
+    function goback(){
+        window.close();
+    }
     
     
     /*** Questa funzione viene invocata quandno si ricarica la pagina oppure se si preme il pulsante di login come conseguenza della chiamata
