@@ -53,6 +53,7 @@
                                                     <br>                                    
                                                     <p style="font-size: 1em">Powered by <a href='https://applymagicsauce.com'>Apply Magic Sauce</a></p>
                                                     <div style="padding-top: 0.5em; color:black;" id="computing"></div>
+                                                    <div id="continue" style="display: none">Say "continue" to the bot to get the result.</div>
                                                     <div id="error"></div>
 							
 						</nav>
@@ -172,6 +173,7 @@
                             console.log(response);
                             console.log(textStatus);  
                             document.getElementById("computing").innerHTML = response;
+                            document.getElementById("continue").style.display ="";
                             startbutton.disabled = false;
                             
                         },
