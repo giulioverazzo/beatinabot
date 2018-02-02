@@ -51,6 +51,14 @@
                                                     <p style='font-size: 1.2em'> 2. Those are used to predict your personality profile<p>
                                                     <button disabled id="startbutton">Start!</button>
                                                     <br>                                    
+                                                    <div id="result">
+                                                        <p>Your personality is INTP. "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>  
+                                                        
+                                                        <figure id="musician">
+                                                            <img id="mus_img" src="assets/images/logo.png" alt="Smiley face">
+                                                            <figcaption style="font-size: 1em">Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                                        </figure>     
+                                                    </div>
                                                     <div style="padding-top: 0.5em; color:black; font-size: 1.2em"><b id="computing"></b></div>
                                                     <div id="continue" style="display: none">Say "continue" to the bot to get your music recommendations!</div>
                                                     <div id="error"></div>
@@ -174,6 +182,11 @@
                             console.log(response);
                             console.log(textStatus);  
                             document.getElementById("computing").innerHTML = response;
+                            
+                            //qui conosco il Profilo di personalità Jungiana.
+                            
+                            
+                            
                             document.getElementById("continue").style.display ="";
                             startbutton.disabled = false;
                             
@@ -221,7 +234,63 @@
         
     }
     
-   
+   function JungianTypeResult(mbti){
+
+            switch(mbti) {
+                    case "ISTJ":
+                        
+                        break;
+                    case "ISFJ":
+
+                        break;
+                    case "INFJ":
+
+                        break;
+                    case "INTJ":
+
+                        break;
+                    case "ISTP":
+
+                        break;
+                    case "ISFP":
+
+                        break;
+                    case "INFP":
+
+                        break;
+                    case "INTP":
+
+                        break;
+                    case "ESTP":
+
+                        break;
+                    case "ESFP":
+
+                        break;
+                    case "ENFP":
+
+                        break;
+                    case "ENTP":
+
+                        break;
+                    case "ESTJ":
+
+                        break;
+                    case "ESFJ":
+
+                        break;
+                    case "ENFJ":
+
+                        break;
+                    case "ENTJ":
+
+                        break;
+
+                    default:
+                        return "there was an error"
+
+                    } 
+        }
     
     
     

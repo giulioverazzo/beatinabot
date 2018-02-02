@@ -15,7 +15,7 @@
 		border: 0;
 		font-size: 100%;
 		font: inherit;
-                vertical-align: baseline;
+                
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -321,6 +321,7 @@
 		text-align: center;
 		top: 0;
 		width: 100%;
+                overflow:scroll;
 	}
 
 		#main:before {
@@ -479,27 +480,26 @@
 	}
 
 	#header {
-		-moz-animation: header 1s 2.25s forwards;
-		-webkit-animation: header 1s 2.25s forwards;
-		-ms-animation: header 1s 2.25s forwards;
-		animation: header 1s 2.25s forwards;
-		-moz-backface-visibility: hidden;
-		-webkit-backface-visibility: hidden;
-		-ms-backface-visibility: hidden;
-		backface-visibility: hidden;
-		-moz-transform: translate3d(0,0,0);
-		-webkit-transform: translate3d(0,0,0);
-		-ms-transform: translate3d(0,0,0);
-		transform: translate3d(0,0,0);
-		cursor: default;
-		display: inline-block;
-		opacity: 0;
-		position: relative;
-		text-align: center;
-		top: -1em;
-		vertical-align: middle;
-		width: 90%;
-	}
+                -moz-animation: header 1s 2.25s forwards;
+                -webkit-animation: header 1s 2.25s forwards;
+                -ms-animation: header 1s 2.25s forwards;
+                animation: header 1s 2.25s forwards;
+                -moz-backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                -ms-backface-visibility: hidden;
+                backface-visibility: hidden;
+                -moz-transform: translate3d(0,0,0);
+                -webkit-transform: translate3d(0,0,0);
+                -ms-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+                cursor: default;
+                display: inline-block;
+                opacity: 0;
+                position: relative;
+                top: 2em;
+                vertical-align: top;
+                width:90%;
+                }
 
 		#header h1 {
 			font-size: 4.35em;
@@ -665,7 +665,6 @@
 		height: 6em;
 		left: 0;
 		line-height: 8em;
-		position: absolute;
 		text-align: center;
 		width: 100%;
 	}
@@ -1040,5 +1039,20 @@
         
         #logo{
             width: 30%;
+            max-width: 300px;
+        }
+        #result{
+           width: 70%;
+           margin: 0 auto;
+           top: 0.5em;
+           
+        }
+        #musician{
+            width:40%;
+            margin: 0 auto;
+            
+        }
+        #mus_img{
+            width: 70%;
             max-width: 300px;
         }
