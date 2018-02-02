@@ -52,15 +52,18 @@
                                                     <button disabled id="startbutton">Start!</button>
                                                     <br>                                    
                                                     <div id="result">
-                                                        <p>Your personality is INTP. "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>  
+                                                        <div style="padding-top: 0.5em; color:black; font-size: 1.5em"><b id="computing">Your Personality Type is ISTJ.</b></div>
+                                                        <p style="width:70%; margin:0 auto; padding-top: 0.5em; padding-bottom: 0.5em">Quiet, serious, earn success by thoroughness and dependability. Practical, matter-of-fact, realistic, and responsible. Decide logically what should be done and work toward it steadily, regardless of distractions. Take pleasure in making everything orderly and organized - their work, their home, their life. Value traditions and loyalty.</p>  
                                                         
                                                         <figure id="musician">
-                                                            <img id="mus_img" src="assets/images/logo.png" alt="Smiley face">
-                                                            <figcaption style="font-size: 1em">Fig.1 - A view of the pulpit rock in Norway.</figcaption>
-                                                        </figure>     
+                                                            <img id="mus_img" src="assets/images/istj.jpg" alt="Smiley face">
+                                                            <figcaption style="font-size: 1em">J.S. Bach, Eddie Van Halen, Alan Jackson and Trisha Yearwood are famous ISTJ Musicians.</figcaption>
+                                                        </figure>
+                                                        
+                                                        <p id="continue" style="padding-top: 1.5em; color:black;">Say "continue" to the bot to get your music recommendations!</p>
                                                     </div>
-                                                    <div style="padding-top: 0.5em; color:black; font-size: 1.2em"><b id="computing"></b></div>
-                                                    <div id="continue" style="display: none; padding-top: 0.5em;">Say "continue" to the bot to get your music recommendations!</div>
+                                                    
+                                                    
                                                     <div id="error"></div>
 													
 					</header>
@@ -237,10 +240,13 @@
 
             switch(mbti) {
                     case "ISTJ":
+                        var description = "Quiet, serious, earn success by thoroughness and dependability. Practical, matter-of-fact, realistic, and responsible. Decide logically what should be done and work toward it steadily, regardless of distractions. Take pleasure in making everything orderly and organized - their work, their home, their life. Value traditions and loyalty."
+                        var caption = "J.S. Bach, Eddie Van Halen, Alan Jackson and Trisha Yearwood are famous ISTJ Musicians.";
                         
                         break;
                     case "ISFJ":
-
+            
+                        
                         break;
                     case "INFJ":
 
