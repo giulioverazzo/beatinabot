@@ -1042,17 +1042,16 @@
             max-width: 300px;
         }
         #result{
-           width: 70%;
+           width: 60%;
            margin: 0 auto;
            top: 0.5em;
            
         }
         #musician{
-            width:40%;
+            width:50%;
             margin: 0 auto;
             
         }
         #mus_img{
-            width: 70%;
-            max-width: 300px;
+            max-width: 100%;
         }
