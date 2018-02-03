@@ -8,10 +8,9 @@ html, body {
         text-align: center;
         font-family:'Helvetica', sans-serif;
         font-weight: 300 !important;
-        letter-spacing: -0.030em;
+        letter-spacing: -0.028em;
         line-height: 1.5em;
         color:#ffffff;
- 
 }
     
 #caption{
@@ -91,10 +90,10 @@ html, body {
         
     }
     #description{
-        width:80%;
+        width:85%;
     }
     #mus_img{
-        max-width: 50%
+        max-width: 55%
     }
     
    
@@ -108,10 +107,10 @@ html, body {
         font-size: 14pt; 
     }
     #description{
-        width:50%;
+        width:55%;
     }
     #mus_img{
-        max-width: 20%
+        max-width: 25%
     }
 
 
