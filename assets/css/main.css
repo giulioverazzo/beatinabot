@@ -9,7 +9,8 @@
 
 /* Reset */
 
-	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+
+        div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
 		border: 0;
@@ -23,7 +24,8 @@
 	}
 
 	body {
-		line-height: 1;
+            
+            line-height: 1;
 	}
 
 	ol, ul {
@@ -51,16 +53,16 @@
 /* Box Model */
 
 	*, *:before, *:after {
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
+		-moz-box-sizing: content-box;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
 	}
 
 /* Basic */
 
 	body, input, select, textarea {
-		color: #fff;
-		font-family: 'Source Sans Pro', sans-serif;
+                color:#ffffff;
+		font-family:'Helvetica', sans-serif;
 		font-size: 15pt;
 		font-weight: 300 !important;
 		letter-spacing: -0.025em;
@@ -69,7 +71,7 @@
 
 	body {
 		background: #fff;
-		overflow: hidden;
+		overflow: auto;
 	}
 
 		body.loading * {
@@ -315,22 +317,21 @@
 /* Main */
 
 	#main {
-		height: 100%;
+                height: 100%;
 		left: 0;
 		position: fixed;
 		text-align: center;
 		top: 0;
 		width: 100%;
-                overflow:scroll;
+                margin: 0;
 	}
 
 		#main:before {
 			content: '';
 			display: inline-block;
-			height: 100%;
+			height: auto;
 			margin-right: 0;
 			vertical-align: middle;
-			width: 1px;
 		}
 
 /* Header */
@@ -499,6 +500,7 @@
                 top: 2em;
                 vertical-align: top;
                 width:90%;
+                height: 100%;
                 }
 
 		#header h1 {

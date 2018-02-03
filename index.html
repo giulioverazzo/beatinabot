@@ -10,7 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/page2.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
                 <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
@@ -32,54 +32,52 @@
                 <meta name="theme-color" content="#ffffff">
                 <script src="https://code.jquery.com/jquery-1.9.1.js"></script> 
 	</head>
-	<body class="loading">
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
+	<body>
 			<div id="main">
 
 				<!-- Header -->
 					<header id="header">
+                                            <div id="container">
 						<img id="logo" src="assets/images/logo.png" alt="Smiley face">
                                                 <div style='font-size: 1.5em'><b> Music on your personality.</b></div>
 						
                                                      
                                                     <p style='font-size: 1.2em'> 1. By login with Facebook, we collect the pages you've liked</p>
-                                                    <fb:login-button scope="public_profile,email,user_likes" onlogin="checkLoginState();"></fb:login-button>
+                                                    <fb:login-button scope="public_profile,email,user_likes" onlogin="checkLoginState();" style="margin:0 auto;"></fb:login-button>
                                                     <div style="padding-top: 0.5em; color:black;" id="status"></div>
                                                     <!--<button style='background: none;' onclick="logout()">logout da facebook</button>-->
                                                     <p style='font-size: 1.2em'> 2. Those are used to predict your personality profile<p>
                                                     <button disabled id="startbutton">Start!</button>
                                                     <br>                                    
-                                                    <div id="result">
-                                                        <div style="padding-top: 0.5em; color:black; font-size: 1.5em"><b id="computing">Your Personality Type is ISTJ.</b></div>
-                                                        <p style="width:70%; margin:0 auto; padding-top: 0.5em; padding-bottom: 0.5em">Quiet, serious, earn success by thoroughness and dependability. Practical, matter-of-fact, realistic, and responsible. Decide logically what should be done and work toward it steadily, regardless of distractions. Take pleasure in making everything orderly and organized - their work, their home, their life. Value traditions and loyalty.</p>  
+                                                    <div id="result" style="display:none">
+                                                        <div style="color:#1d2129; font-size: 1.5em"><p>Your Personality Type is: <p id="type" style="color:yellow; text-decoration:underline;"></p></p></div>
+                                                        <p id="description" style=""></p>  
                                                         
                                                         <figure id="musician">
-                                                            <img id="mus_img" src="assets/images/istj.jpg" alt="Smiley face">
-                                                            <figcaption style="font-size: 1em">J.S. Bach, Eddie Van Halen, Alan Jackson and Trisha Yearwood are famous ISTJ Musicians.</figcaption>
+                                                            <img id="mus_img" alt="Smiley face">
+                                                            <figcaption id="caption"></figcaption>
                                                         </figure>
                                                         
-                                                        <p id="continue" style="padding-top: 1.5em; color:black;">Say "continue" to the bot to get your music recommendations!</p>
+                                                        <p id="computing" style="color:#1d2129;"></p>
                                                     </div>
-                                                    
-                                                    
                                                     <div id="error"></div>
-													
+						<div class="push"></div>	
+                                            </div>
 					</header>
 
 				<!-- Footer -->
-					<footer id="footer">
+					<footer class="footer">
                                             <span class="copyright">&copy; Beat in a Bot. Click <a href=license.html>here</a> to check our privacy policy.</span>
 					</footer>
 
 			</div>
-		</div>
+                     
+		
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script>
-			window.onload = function() { document.body.className = ''; }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; } 
+			//window.onload = function() { document.body.className = ''; }
+			//window.ontouchmove = function() { return false; }
+			//window.onorientationchange = function() { document.body.scrollTop = 0; }
                         
                             
     /*** Carica l'SDK in modo asincrono nella pagina HTML***/
@@ -240,9 +238,15 @@
 
             switch(mbti) {
                     case "ISTJ":
-                        var description = "Quiet, serious, earn success by thoroughness and dependability. Practical, matter-of-fact, realistic, and responsible. Decide logically what should be done and work toward it steadily, regardless of distractions. Take pleasure in making everything orderly and organized - their work, their home, their life. Value traditions and loyalty."
+                        var description = "Stands for Introversion, Sensing, Thinking, Judgement. Quiet, serious, earn success by thoroughness and dependability. Practical, matter-of-fact, realistic, and responsible. Decide logically what should be done and work toward it steadily, regardless of distractions. Take pleasure in making everything orderly and organized - their work, their home, their life. Value traditions and loyalty."
                         var caption = "J.S. Bach, Eddie Van Halen, Alan Jackson and Trisha Yearwood are famous ISTJ Musicians.";
+                        var img = "assets/images/istj.jpg"
                         
+                        document.getElementById("result").display = "";
+                        document.getElementById("description").innerHTML = description;
+                        document.getElementById("mus_img").src = img;
+                        document.getElementById("caption").innerHTML = caption;
+                      
                         break;
                     case "ISFJ":
             
@@ -264,6 +268,16 @@
 
                         break;
                     case "INTP":
+                        
+                        var description = "Seek to develop logical explanations for everything that interests them. Theoretical and abstract, interested more in ideas than in social interaction. Quiet, contained, flexible, and adaptable. Have unusual ability to focus in depth to solve problems in their area of interest. Skeptical, sometimes critical, always analytical."
+                        var caption = "David Byrne, Robert Fripp (King Crimson), Keith Emerson and Joe Jackson are famous INTP Musicians.";
+                        var img = "assets/images/intp.jpg"
+                        
+                        document.getElementById("result").display = "";
+                        document.getElementById("type").innerHTML = mbti;
+                        document.getElementById("description").innerHTML = description;
+                        document.getElementById("mus_img").src = img;
+                        document.getElementById("caption").innerHTML = caption;
 
                         break;
                     case "ESTP":
@@ -316,5 +330,6 @@
          
                         		
                 </script>
+            
 	</body>
 </html>
