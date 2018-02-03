@@ -57,6 +57,7 @@
                                                             <img id="mus_img" alt="Smiley face">
                                                             <figcaption id="caption"></figcaption>
                                                         </figure> 
+                                                            
                                                     </div>
                                                         <p id="computing" style="color:#1d2129;"></p>
                                                     <div id="error"></div>
@@ -180,7 +181,7 @@
                             
                             console.log(response);
                             console.log(textStatus);  
-                            document.getElementById("computing").innerHTML = response;
+                            document.getElementById("computing").innerHTML = 'Say "continue" to the bot to get your music recommendations!';
                             
                             //qui conosco il Profilo di personalità Jungiana.
                             JungianTypeResult(response);
@@ -274,11 +275,13 @@
                         var caption = "David Byrne, Robert Fripp (King Crimson), Keith Emerson and Joe Jackson are famous INTP Musicians.";
                         var img = "assets/images/intp.jpg"
                         
-                        document.getElementById("result").display = "";
+                        console.log("inside INTP switch case")
+                        
                         document.getElementById("type").innerHTML = mbti;
                         document.getElementById("description").innerHTML = description;
                         document.getElementById("mus_img").src = img;
                         document.getElementById("caption").innerHTML = caption;
+                        document.getElementById("result").display = "";
 
                         break;
                     case "ESTP":
