@@ -56,10 +56,9 @@
                                                         <figure id="musician">
                                                             <img id="mus_img" alt="Smiley face">
                                                             <figcaption id="caption"></figcaption>
-                                                        </figure>
-                                                        
-                                                        <p id="computing" style="color:#1d2129;"></p>
+                                                        </figure> 
                                                     </div>
+                                                        <p id="computing" style="color:#1d2129;"></p>
                                                     <div id="error"></div>
 						<div class="push"></div>	
                                             </div>
@@ -184,10 +183,10 @@
                             document.getElementById("computing").innerHTML = response;
                             
                             //qui conosco il Profilo di personalità Jungiana.
+                            JungianTypeResult(response);
                             
                             
-                            
-                            document.getElementById("continue").style.display ="";
+                            document.getElementById("computing").style.display ="";
                             startbutton.disabled = false;
                             
                         },
