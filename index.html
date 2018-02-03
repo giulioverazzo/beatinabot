@@ -240,72 +240,141 @@
             console.log(mbti);
             switch(mbti) {
                     case "ISTJ":
-                        var description = "Stands for Introversion, Sensing, Thinking, Judgement. Quiet, serious, earn success by thoroughness and dependability. Practical, matter-of-fact, realistic, and responsible. Decide logically what should be done and work toward it steadily, regardless of distractions. Take pleasure in making everything orderly and organized - their work, their home, their life. Value traditions and loyalty."
-                        var caption = "J.S. Bach, Eddie Van Halen, Alan Jackson and Trisha Yearwood are famous ISTJ Musicians.";
-                        var img = "assets/images/istj.jpg"
-                        
-                        document.getElementById("result").style.display = "";
-                        document.getElementById("description").innerHTML = description;
-                        document.getElementById("mus_img").src = img;
-                        document.getElementById("caption").innerHTML = caption;
-                      
+                        var description = "Quiet, serious, earn success by thoroughness and dependability. Practical, matter-of-fact, \n\
+                                           realistic, and responsible. Decide logically what should be done and work toward it steadily, regardless of distractions. \n\
+                                           Take pleasure in making everything orderly and organized - their work, their home, their life. \n\
+                                           Value traditions and loyalty."
+                        var caption = "J.S. Bach, Eddie Van Halen, Alan Jackson and Trisha Yearwood are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
+
                         break;
                     case "ISFJ":
-            
-                        
+                        var description = "Quiet, friendly, responsible, and conscientious. Committed and steady in meeting their obligations. \n\
+                                           \n\Thorough, painstaking, and accurate. Loyal, considerate, notice and remember specifics about people \n\
+                                           who are important to them, concerned with how others feel. Strive to create an orderly and harmonious environment \n\
+                                           at work and at home.";
+                        var caption = "Justin Timberlake, Aretha Franklin, Bjork and Regina Skeptor are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
                         break;
+                        
                     case "INFJ":
+                        var description = "Seek meaning and connection in ideas, relationships, and material possessions. \n\
+                                           Want to understand what motivates people and are insightful about others. Conscientious and committed to their firm values. \n\
+                                           Develop a clear vision about how best to serve the common good. Organized and decisive in implementing their vision.";
+                        var caption = "Tailor Swift, Roger Waters, Peter Gabriel and George Harrison are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
 
                         break;
                     case "INTJ":
-
+                        var description = "Have original minds and great drive for implementing their ideas and achieving their goals. \n\
+                                           Quickly see patterns in external events and develop long-range explanatory perspectives. When committed, organize a job and carry it through. \n\
+                                           Skeptical and independent, have high standards of competence and performance - for themselves and others.";
+                        var caption = "Jay Z, 50 Cent, Beethoven and Brian May are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
                         break;
+                        
                     case "ISTP":
-
+                        var description = "Tolerant and flexible, quiet observers until a problem appears, then act quickly to find workable solutions. \n\
+                                           Analyze what makes things work and readily get through large amounts of data to isolate the core of practical problems. \n\
+                                           Interested in cause and effect, organize facts using logical principles, value efficiency.";
+                        var caption = "Madonna, Amy Winehouse, John Bon Jovi and Eminem are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
+                        
                         break;
                     case "ISFP":
+                        var description = "Quiet, friendly, sensitive, and kind. Enjoy the present moment, what's going on around them. \n\
+                                           Like to have their own space and to work within their own time frame. Loyal and committed to their \n\
+                                           values and to people who are important to them. Dislike disagreements and conflicts, do not force their opinions or values on others.";
+                        var caption = "George Micheal, Kanye West, Lady Gaga and Prince are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
 
                         break;
                     case "INFP":
+                        var description = "Idealistic, loyal to their values and to people who are important to them. Want an external life that \n\
+                                           is congruent with their values. Curious, quick to see possibilities, can be catalysts for implementing \n\
+                                           ideas. Seek to understand people and to help them fulfill their potential. Adaptable, flexible, and accepting unless a value is threatened.";
+                        var caption = "Lenny Kravitz, Bob Marley, Sting and Bob Dylan are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
 
                         break;
                     case "INTP":
                         
-                        var description = "Seek to develop logical explanations for everything that interests them. Theoretical and abstract, interested more in ideas than in social interaction. Quiet, contained, flexible, and adaptable. Have unusual ability to focus in depth to solve problems in their area of interest. Skeptical, sometimes critical, always analytical."
-                        var caption = "David Byrne, Robert Fripp (King Crimson), Keith Emerson and Joe Jackson are famous INTP Musicians.";
-                        var img = "assets/images/intp.jpg"
+                        var description = "Seek to develop logical explanations for everything that interests them. Theoretical and abstract, \n\
+                                           interested more in ideas than in social interaction. Quiet, contained, flexible, and adaptable. \n\
+                                           Have unusual ability to focus in depth to solve problems in their area of interest. Skeptical, sometimes critical, always analytical."
+                        var caption = "David Byrne, Robert Fripp (King Crimson), Keith Emerson and Joe Jackson are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
                         
-                        console.log("inside INTP switch case")
-                        
-                        document.getElementById("type").innerHTML = mbti;
-                        document.getElementById("description").innerHTML = description;
-                        document.getElementById("mus_img").src = img;
-                        document.getElementById("caption").innerHTML = caption;
-                        document.getElementById("result").style.display = "";
-
                         break;
                     case "ESTP":
-
+                        var description = "Flexible and tolerant, they take a pragmatic approach focused on immediate results. \n\
+                                           Theories and conceptual explanations bore them - they want to act energetically to solve the problem. Focus on the here-and-now, \n\
+                                           spontaneous, enjoy each moment that they can be active with others. Enjoy material comforts and style. Learn best through doing."
+                        var caption = "Pink, Iggy Pop, Axl Rose and James Brown are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
+                        
                         break;
                     case "ESFP":
+                        var description = "Outgoing, friendly, and accepting. Exuberant lovers of life, people, and material comforts. \n\
+                                           Enjoy working with others to make things happen. Bring common sense and a realistic approach to their work, \n\
+                                           and make work fun. Flexible and spontaneous, adapt readily to new people and environments. \n\
+                                           Learn best by trying a new skill with other people."
+                        var caption = "Elvis Presley, Beyonce, Bruno Mars and Paul McCartney are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
 
                         break;
                     case "ENFP":
+                        var description = "Warmly enthusiastic and imaginative. See life as full of possibilities. \n\
+                                           Make connections between events and information very quickly, and confidently \n\
+                                           proceed based on the patterns they see. Want a lot of affirmation from others, \n\
+                                           and readily give appreciation and support. Spontaneous and flexible, often rely on their \n\
+                                           ability to improvise and their verbal fluency.";
+                        var caption = "Robbie Williams, John Lennon, Ed Sheeran and Adele are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
 
                         break;
                     case "ENTP":
+                        var description = "Quick, ingenious, stimulating, alert, and outspoken. Resourceful in solving new and challenging problems. \n\
+                                           Adept at generating conceptual possibilities and then analyzing them strategically. Good at reading other people. \n\
+                                           Bored by routine, will seldom do the same thing the same way, apt to turn to one new interest after another.";
+                        var caption = "Frank Zappa, Tom Waits, Jack Black and The Edge (U2) are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
 
                         break;
                     case "ESTJ":
+                        var description = "Practical, realistic, matter-of-fact. Decisive, quickly move to implement decisions. \n\
+                                           Organize projects and people to get things done, focus on getting results in the most efficient way possible. \n\
+                                           Take care of routine details. Have a clear set of logical standards, systematically follow them and want others to also. \n\
+                                           Forceful in implementing their plans.";
+                        var caption = "Frank Sinatra, Celine Dion, Conway Twitty and Pat Boone are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
 
                         break;
                     case "ESFJ":
+                        var description = "Warmhearted, conscientious, and cooperative. Want harmony in their environment, \n\
+                                           work with determination to establish it. Like to work with others to complete tasks accurately and on time. \n\
+                                           Loyal, follow through even in small matters. Notice what others need in their day-by-day lives \n\
+                                           and try to provide it. Want to be appreciated for who they are and for what they contribute.";
+                        var caption = "Diana Ross, Tina Turner, Whitney Houston and Barbra Streisand are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
 
                         break;
                     case "ENFJ":
+                        var description = "Warm, empathetic, responsive, and responsible. Highly attuned to the emotions, needs, \n\
+                                           and motivations of others. Find potential in everyone, want to help others fulfill their potential. \n\n\
+                                           May act as catalysts for individual and group growth. Loyal, responsive to praise and criticism. \n\
+                                           Sociable, facilitate others in a group, and provide inspiring leadership.";
+                        var caption = "Katy Perry, Bono (U2), Thom Yorke and Christina Aguilera are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
 
                         break;
                     case "ENTJ":
+                        var description = "Frank, decisive, assume leadership readily. Quickly see illogical and inefficient procedures \n\
+                                           and policies, develop and implement comprehensive systems to solve organizational problems. \n\
+                                           Enjoy long-term planning and goal setting. Usually well informed, well read, enjoy expanding their \n\
+                                           knowledge and passing it on to others. Forceful in presenting their ideas.";
+                        var caption = "Steve Vai, Adam Levine (Maroon 5), Gene Simmons (KISS) and Billy Joel are famous "+mbti+" musicians.";
+                        var img = "assets/images/"+mbti+".jpg";
 
                         break;
 
@@ -313,6 +382,12 @@
                         return "there was an error"
 
                     } 
+                    
+                    document.getElementById("type").innerHTML = mbti;
+                    document.getElementById("description").innerHTML = description;
+                    document.getElementById("mus_img").src = img;
+                    document.getElementById("caption").innerHTML = caption;
+                    document.getElementById("result").style.display = "";
         }
     
     
