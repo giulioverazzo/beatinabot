@@ -45,7 +45,7 @@
                                                     <!--<fb:login-button scope="public_profile,email,user_likes" onlogin="checkLoginState();" style="margin:0 auto;"></fb:login-button>-->
                                                     <div class="fb-login-button" 
                                                          data-max-rows="1" 
-                                                         data-size="large" 
+                                                         data-size="medium" 
                                                          data-button-type="login_with" 
                                                          data-show-faces="false" 
                                                          data-auto-logout-link="false" 
@@ -432,10 +432,10 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[0] === "I"){
                     first = c.negative;
-                    p1 = "Determine your Introversion dimension:";
+                    p1 = "Introversion";
                 }else{
                     first = c.positive;
-                    p1 = "Determine your Extroversion dimension:";
+                    p1 = "Extroversion";
                 }
                 break;
                 
@@ -443,10 +443,10 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[1] === "N"){
                     second = c.positive;
-                    p2 = "Determine your iNtuition dimension:";
+                    p2 = "iNtuition";
                 }else{
                     second = c.negative;
-                    p2 = "Determine your Sensing dimension:";
+                    p2 = "Sensing";
                 }
                 break;
                 
@@ -454,10 +454,10 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[2] === "T"){
                     third = c.negative;
-                    p3 = "Determine your Thinking dimension:";
+                    p3 = "Thinking";
                 }else{
                     third = c.positive;
-                    p3 = "Determine your Feeling dimension:";
+                    p3 = "Feeling";
                 } 
                 break;
             
@@ -465,10 +465,10 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[3] === "P"){
                     fourth = c.negative;
-                    p4 = "Determine your Perceiving dimension:";
+                    p4 = "Perceiving";
                 }else{
                     fourth = c.positive;
-                    p4 = "Determine your Judging dimension:";
+                    p4 = "Judging";
                 }
                 break;  
         }   
@@ -507,8 +507,16 @@ function showLikes(obj, mbti) {
     //add the last column
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
-    div.innerHTML = p1;
-   
+    var text1 = document.createTextNode("Determine your");
+    var br = document.createElement("BR");
+    var dimension = document.createTextNode(p1);
+    var text2 = document.createTextNode("dimension:");
+    div.appendChild(text1);
+    div.appendChild(br);
+    div.appendChild(dimension);
+    div.appendChild(br);
+    div.appendChild(text2);
+    
     cell.appendChild(div);
     row1.appendChild(cell);
     
