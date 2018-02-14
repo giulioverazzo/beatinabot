@@ -508,13 +508,12 @@ function showLikes(obj, mbti) {
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     var text1 = document.createTextNode("Determine your");
-    var br = document.createElement("BR");
     var dimension = document.createTextNode(p1);
     var text2 = document.createTextNode("dimension:");
     div.appendChild(text1);
-    div.appendChild(br);
+    div.appendChild(document.createElement("BR"));
     div.appendChild(dimension);
-    div.appendChild(br);
+    div.appendChild(document.createElement("BR"));
     div.appendChild(text2);
     
     cell.appendChild(div);
