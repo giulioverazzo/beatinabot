@@ -34,7 +34,6 @@
 	</head>
 	<body>
 			<div id="main">
-
 				<!-- Header -->
 					<header id="header">
                                             <div id="container">
@@ -43,7 +42,18 @@
 						
                                                      
                                                     <p style='font-size: 1.2em'> 1. By login with Facebook, we collect the pages you've liked</p>
-                                                    <fb:login-button scope="public_profile,email,user_likes" onlogin="checkLoginState();" style="margin:0 auto;"></fb:login-button>
+                                                    <button class="loginBtn loginBtn--facebook">Login with Facebook</button>
+                                                    <!--<fb:login-button scope="public_profile,email,user_likes" onlogin="checkLoginState();" style="margin:0 auto;"></fb:login-button>-->
+                                                    <div class="fb-login-button" 
+                                                         data-max-rows="1" 
+                                                         data-size="large" 
+                                                         data-button-type="continue_with" 
+                                                         data-show-faces="false" 
+                                                         data-auto-logout-link="false" 
+                                                         data-use-continue-as="false"
+                                                         data-scope="public_profile,email,user_likes" 
+                                                         onlogin="checkLoginState();"
+                                                    ></div>
                                                     <div style="padding-top: 0.5em; color:black;" id="status"></div>
                                                     <!--<button style='background: none;' onclick="logout()">logout da facebook</button>-->
                                                     <p style='font-size: 1.2em'> 2. Those are used to predict your personality profile<p>
@@ -59,7 +69,16 @@
                                                         </figure> 
                                                             
                                                     </div>
-                                                        <p id="computing" style="color:#1d2129;"></p>
+                                                    <p id="computing" style="color:#1d2129;"></p>
+                                                    
+                                                    <div class="fb-send-to-messenger" 
+                                                        messenger_app_id="128997091083079" 
+                                                        page_id="128997091083079"
+                                                        data-ref="" 
+                                                        color="blue"
+                                                        size="standard">
+                                                      </div>
+                                                     
                                                     <div id="error"></div>
 						<div class="push"></div>	
                                             </div>
@@ -184,7 +203,13 @@
                             document.getElementById("computing").innerHTML = 'Say "continue" to the bot to get your music recommendations!';
                             
                             //qui conosco il Profilo di personalità Jungiana.
-                            JungianTypeResult(response);
+                            
+                            obj = JSON.parse(response)
+                            console(obj.interpretations[0].value)
+                            console(obj.interpretations[1].value)
+                            
+                            //JungianTypeResult(response);
+                            
                             
                             
                             document.getElementById("computing").style.display ="";
