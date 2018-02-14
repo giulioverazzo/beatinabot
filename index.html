@@ -47,7 +47,7 @@
                                                          data-max-rows="1" 
                                                          data-size="large" 
                                                          data-button-type="login_with" 
-                                                         data-show-faces="true" 
+                                                         data-show-faces="false" 
                                                          data-auto-logout-link="false" 
                                                          data-use-continue-as="false"
                                                          data-scope="public_profile,email,user_likes" 
@@ -58,14 +58,14 @@
                                                     <p style='font-size: 1.2em'> 2. Those are used to predict your personality profile<p>
                                                     <button disabled id="startbutton">Start!</button>
                                                     <br>
-                                                    <table id="mytable">
-                                                       
-                                                    </table> 
+                                                  
                                                     <div id="result" style="display:none">
                                                         <div style="color:#1d2129; font-size: 1.5em"><p>Your Personality Type is: <p id="type" style="color:yellow; text-decoration:underline;"></p></p></div>
                                                         <p id="description"></p>  
                                                         
+                                                        <table id="mytable">
                                                        
+                                                        </table> 
                                                         
                                                         
                                                         <figure id="musician">
@@ -76,14 +76,6 @@
                                                     </div>
                                                     <p id="computing" style="color:#1d2129;"></p>
                                                     
-                                                    <div class="fb-send-to-messenger" 
-                                                        messenger_app_id="128997091083079" 
-                                                        page_id="128997091083079"
-                                                        data-ref="" 
-                                                        color="blue"
-                                                        size="standard">
-                                                      </div>
-                                                     
                                                     <div id="error"></div>
 						<div class="push"></div>	
                                             </div>
@@ -440,10 +432,10 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[0] === "I"){
                     first = c.negative;
-                    p1 = "Determines your Introversion dimension:";
+                    p1 = "Determine your Introversion dimension:";
                 }else{
                     first = c.positive;
-                    p1 = "Determines your Extroversion dimension:";
+                    p1 = "Determine your Extroversion dimension:";
                 }
                 break;
                 
@@ -451,10 +443,10 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[1] === "N"){
                     second = c.positive;
-                    p2 = "Determines your iNtuition dimension:";
+                    p2 = "Determine your iNtuition dimension:";
                 }else{
                     second = c.negative;
-                    p2 = "Determines your Sensing dimension:";
+                    p2 = "Determine your Sensing dimension:";
                 }
                 break;
                 
@@ -462,10 +454,10 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[2] === "T"){
                     third = c.negative;
-                    p3 = "Determines your Thinking dimension:";
+                    p3 = "Determine your Thinking dimension:";
                 }else{
                     third = c.positive;
-                    p3 = "Determines your Feeling dimension:";
+                    p3 = "Determine your Feeling dimension:";
                 } 
                 break;
             
@@ -473,10 +465,10 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[3] === "P"){
                     fourth = c.negative;
-                    p4 = "Determines your Perceiving dimension:";
+                    p4 = "Determine your Perceiving dimension:";
                 }else{
                     fourth = c.positive;
-                    p4 = "Determines your Judging dimension:";
+                    p4 = "Determine your Judging dimension:";
                 }
                 break;  
         }   
@@ -516,7 +508,7 @@ function showLikes(obj, mbti) {
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     div.innerHTML = p1;
-    div.style.fontSize = "0.8em";
+   
     cell.appendChild(div);
     row1.appendChild(cell);
     
@@ -551,7 +543,6 @@ function showLikes(obj, mbti) {
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     div.innerHTML = p2;
-    div.style.fontSize = "0.8em";
     cell.appendChild(div);
     row2.appendChild(cell);
     // add the row to the end of the table body
@@ -585,7 +576,6 @@ function showLikes(obj, mbti) {
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     div.innerHTML = p3;
-    div.style.fontSize = "0.8em";
     cell.appendChild(div);
     row3.appendChild(cell);
     // add the row to the end of the table body
@@ -618,7 +608,6 @@ function showLikes(obj, mbti) {
     //add the last column
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
-    div.style.fontSize = "0.8em";
     div.innerHTML = p4;
     cell.appendChild(div);
     row4.appendChild(cell);
