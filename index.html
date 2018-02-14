@@ -440,43 +440,43 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[0] === "I"){
                     first = c.negative;
-                    p1 = "Determines your Introversion dimension";
+                    p1 = "Determines your Introversion dimension:";
                 }else{
                     first = c.positive;
-                    p1 = "Determines your Extroversion dimension";
+                    p1 = "Determines your Extroversion dimension:";
                 }
                 break;
                 
             case "BIG5_Openness":
                 
-                if(mbti[0] === "N"){
+                if(mbti[1] === "N"){
                     second = c.positive;
-                    p2 = "Determines your iNtuition dimension";
+                    p2 = "Determines your iNtuition dimension:";
                 }else{
                     second = c.negative;
-                    p2 = "Determines your Sensing dimension";
+                    p2 = "Determines your Sensing dimension:";
                 }
                 break;
                 
             case "BIG5_Agreeableness":
                 
-                if(mbti[0] === "T"){
+                if(mbti[2] === "T"){
                     third = c.negative;
-                    p3 = "Determines your Thinking dimension";
+                    p3 = "Determines your Thinking dimension:";
                 }else{
                     third = c.positive;
-                    p3 = "Determines your Feeling dimension";
+                    p3 = "Determines your Feeling dimension:";
                 } 
                 break;
             
             case "BIG5_Conscientiousness":
                 
-                if(mbti[0] === "P"){
+                if(mbti[3] === "P"){
                     fourth = c.negative;
-                    p4 = "Determines your Perceiving dimension";
+                    p4 = "Determines your Perceiving dimension:";
                 }else{
                     fourth = c.positive;
-                    p4 = "Determines your Judging dimension";
+                    p4 = "Determines your Judging dimension:";
                 }
                 break;  
         }   
@@ -516,6 +516,7 @@ function showLikes(obj, mbti) {
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     div.innerHTML = p1;
+    div.style.fontSize = "0.8em";
     cell.appendChild(div);
     row1.appendChild(cell);
     
@@ -550,8 +551,9 @@ function showLikes(obj, mbti) {
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     div.innerHTML = p2;
+    div.style.fontSize = "0.8em";
     cell.appendChild(div);
-    row1.appendChild(cell);
+    row2.appendChild(cell);
     // add the row to the end of the table body
     tblBody.appendChild(row2);
     
@@ -583,8 +585,9 @@ function showLikes(obj, mbti) {
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     div.innerHTML = p3;
+    div.style.fontSize = "0.8em";
     cell.appendChild(div);
-    row1.appendChild(cell);
+    row3.appendChild(cell);
     // add the row to the end of the table body
     tblBody.appendChild(row3);
     
@@ -615,9 +618,10 @@ function showLikes(obj, mbti) {
     //add the last column
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
+    div.style.fontSize = "0.8em";
     div.innerHTML = p4;
     cell.appendChild(div);
-    row1.appendChild(cell);
+    row4.appendChild(cell);
     // add the row to the end of the table body
     tblBody.appendChild(row4);
     
