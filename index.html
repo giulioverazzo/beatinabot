@@ -42,15 +42,14 @@
 						
                                                      
                                                     <p style='font-size: 1.2em'> 1. By login with Facebook, we collect the pages you've liked</p>
-                                                    <button class="loginBtn loginBtn--facebook">Login with Facebook</button>
                                                     <!--<fb:login-button scope="public_profile,email,user_likes" onlogin="checkLoginState();" style="margin:0 auto;"></fb:login-button>-->
                                                     <div class="fb-login-button" 
                                                          data-max-rows="1" 
                                                          data-size="large" 
-                                                         data-button-type="continue_with" 
-                                                         data-show-faces="false" 
+                                                         data-button-type="login_with" 
+                                                         data-show-faces="true" 
                                                          data-auto-logout-link="false" 
-                                                         data-use-continue-as="false"
+                                                         data-use-continue-as="true"
                                                          data-scope="public_profile,email,user_likes" 
                                                          onlogin="checkLoginState();"
                                                     ></div>
@@ -205,8 +204,8 @@
                             //qui conosco il Profilo di personalità Jungiana.
                             
                             obj = JSON.parse(response)
-                            console(obj.interpretations[0].value)
-                            console(obj.interpretations[1].value)
+                            console.log(obj.interpretations[0].value)
+                            console.log(obj.interpretations[1].value)
                             
                             //JungianTypeResult(response);
                             
