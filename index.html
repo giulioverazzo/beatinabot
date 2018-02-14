@@ -477,7 +477,9 @@ function showLikes(obj, mbti) {
    /* make the API call */
    
    var table = document.getElementById("mytable");
+   var tblBody = document.createElement("tbody");
    
+   var row = document.createElement("tr");
    for (var id of first){
         FB.api(
             "/"+id+"?fields=picture,name",
@@ -486,38 +488,105 @@ function showLikes(obj, mbti) {
                     
                     /* handle the result */
                         
-                    var obj = response
-                    var tblBody = document.createElement("tbody");
+                    var obj = response;
 
-                    // creating all cells
-                    for (var i = 0; i < 4; i++) {
-                      // creates a table row
-                      var row = document.createElement("tr");
-
-                      for (var j = 0; j < 4; j++) {
-                        // Create a <td> element and a text node, make the text
-                        // node the contents of the <td>, and put the <td> at
-                        // the end of the table row
-                        var cell = document.createElement("td");
-                        var img = document.createElement("IMG");
-                        img.setAttribute("src", obj.picture.data.url);
-                        var caption = document.createElement("FIGCAPTION");
-                        var t = document.createTextNode(obj.name);
-                        caption.appendChild(t);
-                        cell.appendChild(img);
-                        row.appendChild(cell);
-                      }
-
-                      // add the row to the end of the table body
-                      tblBody.appendChild(row);
-                    }
-
-                    // put the <tbody> in the <table>
-                    table.appendChild(tblBody);
+                    var cell = document.createElement("td");
+                    var img = document.createElement("IMG");
+                    img.setAttribute("src", obj.picture.data.url);
+                    var caption = document.createElement("FIGCAPTION");
+                    var t = document.createTextNode(obj.name);
+                    caption.appendChild(t);
+                    cell.appendChild(img);
+                    cell.appendChild(caption);
+                    row.appendChild(cell);
                 }
-            }
-        );  
-    } 
+            });  
+    }
+    // add the row to the end of the table body
+    tblBody.appendChild(row);
+    
+    var row = document.createElement("tr");
+   for (var id of second){
+        FB.api(
+            "/"+id+"?fields=picture,name",
+            function (response) {
+                if (response && !response.error) {
+                    
+                    /* handle the result */
+                        
+                    var obj = response;
+
+                    var cell = document.createElement("td");
+                    var img = document.createElement("IMG");
+                    img.setAttribute("src", obj.picture.data.url);
+                    var caption = document.createElement("FIGCAPTION");
+                    var t = document.createTextNode(obj.name);
+                    caption.appendChild(t);
+                    cell.appendChild(img);
+                    cell.appendChild(caption);
+                    row.appendChild(cell);
+                }
+            });  
+    }
+    // add the row to the end of the table body
+    tblBody.appendChild(row);
+    
+    var row = document.createElement("tr");
+   for (var id of third){
+        FB.api(
+            "/"+id+"?fields=picture,name",
+            function (response) {
+                if (response && !response.error) {
+                    
+                    /* handle the result */
+                        
+                    var obj = response;
+
+                    var cell = document.createElement("td");
+                    var img = document.createElement("IMG");
+                    img.setAttribute("src", obj.picture.data.url);
+                    var caption = document.createElement("FIGCAPTION");
+                    var t = document.createTextNode(obj.name);
+                    caption.appendChild(t);
+                    cell.appendChild(img);
+                    cell.appendChild(caption);
+                    row.appendChild(cell);
+                }
+            });  
+    }
+    // add the row to the end of the table body
+    tblBody.appendChild(row);
+    
+    var row = document.createElement("tr");
+   for (var id of fourth){
+        FB.api(
+            "/"+id+"?fields=picture,name",
+            function (response) {
+                if (response && !response.error) {
+                    
+                    /* handle the result */
+                        
+                    var obj = response;
+
+                    var cell = document.createElement("td");
+                    var img = document.createElement("IMG");
+                    img.setAttribute("src", obj.picture.data.url);
+                    var caption = document.createElement("FIGCAPTION");
+                    var t = document.createTextNode(obj.name);
+                    caption.appendChild(t);
+                    cell.appendChild(img);
+                    cell.appendChild(caption);
+                    row.appendChild(cell);
+                }
+            });  
+    }
+    // add the row to the end of the table body
+    tblBody.appendChild(row);
+    
+    
+    
+    // put the <tbody> in the <table>
+    table.appendChild(tblBody);
 }
     
     
