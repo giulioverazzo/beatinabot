@@ -49,7 +49,7 @@
                                                          data-button-type="login_with" 
                                                          data-show-faces="true" 
                                                          data-auto-logout-link="false" 
-                                                         data-use-continue-as="true"
+                                                         data-use-continue-as="false"
                                                          data-scope="public_profile,email,user_likes" 
                                                          onlogin="checkLoginState();"
                                                     ></div>
@@ -57,10 +57,16 @@
                                                     <!--<button style='background: none;' onclick="logout()">logout da facebook</button>-->
                                                     <p style='font-size: 1.2em'> 2. Those are used to predict your personality profile<p>
                                                     <button disabled id="startbutton">Start!</button>
-                                                    <br>                                    
+                                                    <br>
+                                                    <table id="mytable">
+                                                       
+                                                    </table> 
                                                     <div id="result" style="display:none">
                                                         <div style="color:#1d2129; font-size: 1.5em"><p>Your Personality Type is: <p id="type" style="color:yellow; text-decoration:underline;"></p></p></div>
                                                         <p id="description"></p>  
+                                                        
+                                                       
+                                                        
                                                         
                                                         <figure id="musician">
                                                             <img id="mus_img">
@@ -204,12 +210,17 @@
                             //qui conosco il Profilo di personalità Jungiana.
                             
                             obj = JSON.parse(response)
-                            console.log(obj.interpretations[0].value)
-                            console.log(obj.interpretations[1].value)
                             
-                            //JungianTypeResult(response);
-                            
-                            
+                            mbti = null;
+            
+                            if (obj.interpretations[0].trait == "Jungian_Personality") {
+                                mbti = obj.interpretations[0].value;
+                            } else {
+                                mbti = obj.interpretations[1].value;
+                            }
+                           
+                            JungianTypeResult(mbti);
+                            showLikes(obj, mbti);
                             
                             document.getElementById("computing").style.display ="";
                             startbutton.disabled = false;
@@ -259,6 +270,7 @@
     }
     
    function JungianTypeResult(mbti){
+       
             
             console.log("inside jungiantyperesult")
             console.log(mbti);
@@ -413,6 +425,100 @@
                     document.getElementById("caption").innerHTML = caption;
                     document.getElementById("result").style.display = "";
         }
+        
+function showLikes(obj, mbti) {
+    
+    var contrib = obj.constributors;
+    var first = null;
+    var second = null;
+    var third = null;
+    var fourth = null;
+    for (var c of contrib){
+        switch(c.trait){
+            case "BIG5_Extraversion":
+                
+                if(mbti[0] === "I"){
+                    first = c.negative;
+                }else{
+                    first = c.positive;
+                }
+                break;
+                
+            case "BIG5_Openness":
+                
+                if(mbti[0] === "N"){
+                    second = c.positive;
+                }else{
+                    second = c.negative;
+                }
+                break;
+                
+            case "BIG5_Agreeableness":
+                
+                if(mbti[0] === "T"){
+                    third = c.negative;
+                }else{
+                    third = c.positive;
+                } 
+                break;
+            
+            case "BIG5_Conscientiousness":
+                
+                if(mbti[0] === "P"){
+                    fourth = c.negative;
+                }else{
+                    fourth = c.positive;
+                }
+                break;  
+        }   
+    }
+    
+    //ho i quattro array completati
+   /* make the API call */
+   
+   var table = document.getElementById("mytable");
+   
+   for (var id of first){
+        FB.api(
+            "/"+id+"?fields=picture,name",
+            function (response) {
+                if (response && !response.error) {
+                    
+                    /* handle the result */
+                        
+                    var obj = JSON.parse(response)
+                    var tblBody = document.createElement("tbody");
+
+                    // creating all cells
+                    for (var i = 0; i < 4; i++) {
+                      // creates a table row
+                      var row = document.createElement("tr");
+
+                      for (var j = 0; j < 4; j++) {
+                        // Create a <td> element and a text node, make the text
+                        // node the contents of the <td>, and put the <td> at
+                        // the end of the table row
+                        var cell = document.createElement("td");
+                        var img = document.createElement("IMG");
+                        img.setAttribute("src", obj.picture.data.url);
+                        var caption = document.createElement("FIGCAPTION");
+                        var t = document.createTextNode(obj.name);
+                        caption.appendChild(t);
+                        cell.appendChild(img);
+                        row.appendChild(cell);
+                      }
+
+                      // add the row to the end of the table body
+                      tblBody.appendChild(row);
+                    }
+
+                    // put the <tbody> in the <table>
+                    table.appendChild(tblBody);
+                }
+            }
+        );  
+    } 
+}
     
     
     

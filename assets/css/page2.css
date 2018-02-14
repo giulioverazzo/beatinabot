@@ -12,6 +12,11 @@ html, body {
         line-height: 1.5em;
         color:#ffffff;
 }
+
+table{
+    margin: 0 auto;
+    
+}
     
 #caption{
     width:70%;
