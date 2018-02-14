@@ -479,7 +479,7 @@ function showLikes(obj, mbti) {
    var table = document.getElementById("mytable");
    var tblBody = document.createElement("tbody");
    
-   var row = document.createElement("tr");
+   var row1 = document.createElement("tr");
    for (var id of first){
         FB.api(
             "/"+id+"?fields=picture,name",
@@ -498,14 +498,14 @@ function showLikes(obj, mbti) {
                     caption.appendChild(t);
                     cell.appendChild(img);
                     cell.appendChild(caption);
-                    row.appendChild(cell);
+                    row1.appendChild(cell);
                 }
             });  
     }
     // add the row to the end of the table body
-    tblBody.appendChild(row);
+    tblBody.appendChild(row1);
     
-    var row = document.createElement("tr");
+   var row2 = document.createElement("tr");
    for (var id of second){
         FB.api(
             "/"+id+"?fields=picture,name",
@@ -524,14 +524,14 @@ function showLikes(obj, mbti) {
                     caption.appendChild(t);
                     cell.appendChild(img);
                     cell.appendChild(caption);
-                    row.appendChild(cell);
+                    row2.appendChild(cell);
                 }
             });  
     }
     // add the row to the end of the table body
-    tblBody.appendChild(row);
+    tblBody.appendChild(row2);
     
-    var row = document.createElement("tr");
+   var row3 = document.createElement("tr");
    for (var id of third){
         FB.api(
             "/"+id+"?fields=picture,name",
@@ -550,14 +550,14 @@ function showLikes(obj, mbti) {
                     caption.appendChild(t);
                     cell.appendChild(img);
                     cell.appendChild(caption);
-                    row.appendChild(cell);
+                    row3.appendChild(cell);
                 }
             });  
     }
     // add the row to the end of the table body
-    tblBody.appendChild(row);
+    tblBody.appendChild(row3);
     
-    var row = document.createElement("tr");
+   var row4 = document.createElement("tr");
    for (var id of fourth){
         FB.api(
             "/"+id+"?fields=picture,name",
@@ -572,18 +572,17 @@ function showLikes(obj, mbti) {
                     var img = document.createElement("IMG");
                     img.setAttribute("src", obj.picture.data.url);
                     var caption = document.createElement("FIGCAPTION");
+                    caption.style.fontSize = "0.8em";
                     var t = document.createTextNode(obj.name);
                     caption.appendChild(t);
                     cell.appendChild(img);
                     cell.appendChild(caption);
-                    row.appendChild(cell);
+                    row4.appendChild(cell);
                 }
             });  
     }
     // add the row to the end of the table body
-    tblBody.appendChild(row);
-    
-    
+    tblBody.appendChild(row4);
     
     // put the <tbody> in the <table>
     table.appendChild(tblBody);
