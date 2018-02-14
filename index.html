@@ -430,6 +430,7 @@ function showLikes(obj, mbti) {
     
     var contrib = obj.contributors;
     var first = null;
+    var p1,p2,p3,p4 = null;
     var second = null;
     var third = null;
     var fourth = null;
@@ -439,8 +440,10 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[0] === "I"){
                     first = c.negative;
+                    p1 = "Determines your Introversion dimension";
                 }else{
                     first = c.positive;
+                    p1 = "Determines your Extroversion dimension";
                 }
                 break;
                 
@@ -448,8 +451,10 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[0] === "N"){
                     second = c.positive;
+                    p2 = "Determines your iNtuition dimension";
                 }else{
                     second = c.negative;
+                    p2 = "Determines your Sensing dimension";
                 }
                 break;
                 
@@ -457,17 +462,19 @@ function showLikes(obj, mbti) {
                 
                 if(mbti[0] === "T"){
                     third = c.negative;
+                    p3 = "Determines your Thinking dimension";
                 }else{
                     third = c.positive;
+                    p3 = "Determines your Feeling dimension";
                 } 
                 break;
             
             case "BIG5_Conscientiousness":
                 
                 if(mbti[0] === "P"){
-                    fourth = c.negative;
+                    p4 = "Determines your Perceiving dimension";
                 }else{
-                    fourth = c.positive;
+                    p4 = "Determines your Judging dimension";
                 }
                 break;  
         }   
@@ -494,6 +501,7 @@ function showLikes(obj, mbti) {
                     var img = document.createElement("IMG");
                     img.setAttribute("src", obj.picture.data.url);
                     var caption = document.createElement("FIGCAPTION");
+                    caption.style.fontSize = "0.8em";
                     var t = document.createTextNode(obj.name);
                     caption.appendChild(t);
                     cell.appendChild(img);
@@ -502,6 +510,13 @@ function showLikes(obj, mbti) {
                 }
             });  
     }
+    //add the last column
+    var cell = document.createElement("td");
+    var div = document.createElement("DIV");
+    div.innerHTML = p1;
+    cell.appendChild(div);
+    row1.appendChild(cell);
+    
     // add the row to the end of the table body
     tblBody.appendChild(row1);
     
@@ -520,6 +535,7 @@ function showLikes(obj, mbti) {
                     var img = document.createElement("IMG");
                     img.setAttribute("src", obj.picture.data.url);
                     var caption = document.createElement("FIGCAPTION");
+                    caption.style.fontSize = "0.8em";
                     var t = document.createTextNode(obj.name);
                     caption.appendChild(t);
                     cell.appendChild(img);
@@ -528,6 +544,12 @@ function showLikes(obj, mbti) {
                 }
             });  
     }
+     //add the last column
+    var cell = document.createElement("td");
+    var div = document.createElement("DIV");
+    div.innerHTML = p2;
+    cell.appendChild(div);
+    row1.appendChild(cell);
     // add the row to the end of the table body
     tblBody.appendChild(row2);
     
@@ -546,6 +568,7 @@ function showLikes(obj, mbti) {
                     var img = document.createElement("IMG");
                     img.setAttribute("src", obj.picture.data.url);
                     var caption = document.createElement("FIGCAPTION");
+                    caption.style.fontSize = "0.8em";
                     var t = document.createTextNode(obj.name);
                     caption.appendChild(t);
                     cell.appendChild(img);
@@ -554,6 +577,12 @@ function showLikes(obj, mbti) {
                 }
             });  
     }
+    //add the last column
+    var cell = document.createElement("td");
+    var div = document.createElement("DIV");
+    div.innerHTML = p3;
+    cell.appendChild(div);
+    row1.appendChild(cell);
     // add the row to the end of the table body
     tblBody.appendChild(row3);
     
@@ -581,6 +610,12 @@ function showLikes(obj, mbti) {
                 }
             });  
     }
+    //add the last column
+    var cell = document.createElement("td");
+    var div = document.createElement("DIV");
+    div.innerHTML = p4;
+    cell.appendChild(div);
+    row1.appendChild(cell);
     // add the row to the end of the table body
     tblBody.appendChild(row4);
     
