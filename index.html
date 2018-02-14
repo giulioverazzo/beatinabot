@@ -67,7 +67,7 @@
                                                        
                                                         </table> 
                                                         
-                                                        
+                                                        <br>
                                                         <figure id="musician">
                                                             <img id="mus_img">
                                                             <figcaption id="caption"></figcaption>
@@ -509,6 +509,7 @@ function showLikes(obj, mbti) {
     var div = document.createElement("DIV");
     var text1 = document.createTextNode("Determine your");
     var dimension = document.createTextNode(p1);
+    dimension.style.color = "yellow";
     var text2 = document.createTextNode("dimension:");
     div.appendChild(text1);
     div.appendChild(document.createElement("BR"));
@@ -549,9 +550,19 @@ function showLikes(obj, mbti) {
      //add the last column
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
-    div.innerHTML = p2;
+    var text1 = document.createTextNode("Determine your");
+    var dimension = document.createTextNode(p2);
+    dimension.style.color = "yellow";
+    var text2 = document.createTextNode("dimension:");
+    div.appendChild(text1);
+    div.appendChild(document.createElement("BR"));
+    div.appendChild(dimension);
+    div.appendChild(document.createElement("BR"));
+    div.appendChild(text2);
+    
     cell.appendChild(div);
     row2.appendChild(cell);
+    
     // add the row to the end of the table body
     tblBody.appendChild(row2);
     
@@ -579,12 +590,22 @@ function showLikes(obj, mbti) {
                 }
             });  
     }
-    //add the last column
+     //add the last column
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
-    div.innerHTML = p3;
+    var text1 = document.createTextNode("Determine your");
+    var dimension = document.createTextNode(p3);
+    dimension.style.color = "yellow";
+    var text2 = document.createTextNode("dimension:");
+    div.appendChild(text1);
+    div.appendChild(document.createElement("BR"));
+    div.appendChild(dimension);
+    div.appendChild(document.createElement("BR"));
+    div.appendChild(text2);
+    
     cell.appendChild(div);
     row3.appendChild(cell);
+    
     // add the row to the end of the table body
     tblBody.appendChild(row3);
     
@@ -615,7 +636,16 @@ function showLikes(obj, mbti) {
     //add the last column
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
-    div.innerHTML = p4;
+    var text1 = document.createTextNode("Determine your");
+    var dimension = document.createTextNode(p4);
+    dimension.style.color = "yellow";
+    var text2 = document.createTextNode("dimension:");
+    div.appendChild(text1);
+    div.appendChild(document.createElement("BR"));
+    div.appendChild(dimension);
+    div.appendChild(document.createElement("BR"));
+    div.appendChild(text2);
+       
     cell.appendChild(div);
     row4.appendChild(cell);
     // add the row to the end of the table body
