@@ -30,7 +30,7 @@
                 <meta name="msapplication-TileColor" content="#ffffff">
                 <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
                 <meta name="theme-color" content="#ffffff">
-                <script src="https://code.jquery.com/jquery-1.9.1.js"></script> 
+                <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 	</head>
 	<body>
 			<div id="main">
@@ -39,18 +39,18 @@
                                             <div id="container">
 						<img id="logo" src="assets/images/logo.png" alt="Smiley face">
                                                 <div style='font-size: 1.5em'><b> Music on your personality.</b></div>
-						
-                                                     
+
+
                                                     <p style='font-size: 1.2em'> 1. By login with Facebook, we collect the pages you've liked</p>
                                                     <!--<fb:login-button scope="public_profile,email,user_likes" onlogin="checkLoginState();" style="margin:0 auto;"></fb:login-button>-->
-                                                    <div class="fb-login-button" 
-                                                         data-max-rows="1" 
-                                                         data-size="medium" 
-                                                         data-button-type="login_with" 
-                                                         data-show-faces="false" 
-                                                         data-auto-logout-link="false" 
+                                                    <div class="fb-login-button"
+                                                         data-max-rows="1"
+                                                         data-size="medium"
+                                                         data-button-type="login_with"
+                                                         data-show-faces="false"
+                                                         data-auto-logout-link="false"
                                                          data-use-continue-as="false"
-                                                         data-scope="public_profile,email,user_likes" 
+                                                         data-scope="public_profile,email,user_likes"
                                                          onlogin="checkLoginState();"
                                                     ></div>
                                                     <div style="padding-top: 0.5em; color:black;" id="status"></div>
@@ -58,26 +58,26 @@
                                                     <p style='font-size: 1.2em'> 2. Those are used to predict your personality profile<p>
                                                     <button disabled id="startbutton">Start!</button>
                                                     <br>
-                                                  
+
                                                     <div id="result" style="display:none">
                                                         <div style="color:#1d2129; font-size: 1.5em"><p>Your Personality Type is: <p id="type" style="color:yellow; text-decoration:underline;"></p></p></div>
-                                                        <p id="description"></p>  
-                                                        
+                                                        <p id="description"></p>
+
                                                         <table id="mytable">
-                                                       
-                                                        </table> 
-                                                        
+
+                                                        </table>
+
                                                         <br>
                                                         <figure id="musician">
                                                             <img id="mus_img">
                                                             <figcaption id="caption"></figcaption>
-                                                        </figure> 
-                                                            
+                                                        </figure>
+
                                                     </div>
                                                     <p id="computing" style="color:#1d2129;"></p>
-                                                    
+
                                                     <div id="error"></div>
-						<div class="push"></div>	
+						<div class="push"></div>
                                             </div>
 					</header>
 
@@ -87,17 +87,17 @@
 					</footer>
 
 			</div>
-                     
-		
+
+
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script>
 			//window.onload = function() { document.body.className = ''; }
 			//window.ontouchmove = function() { return false; }
 			//window.onorientationchange = function() { document.body.scrollTop = 0; }
-                        
-                            
+
+
     /*** Carica l'SDK in modo asincrono nella pagina HTML***/
-    
+
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -105,20 +105,20 @@
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-    
-    
+
+
     /***inizializza Facebook SDK e verifica lo stato del login***/
-    
+
     window.fbAsyncInit = function() {
-        
+
         FB.init({
           appId      : '297859887285839',
           cookie     : true,  // enable cookies to allow the server to access the session
           xfbml      : true,  // parse social plugins on this page
           version    : 'v2.10' // use graph api version 2.8
         });
-       
-        // Now that we've initialized the JavaScript SDK, we call 
+
+        // Now that we've initialized the JavaScript SDK, we call
         // FB.getLoginStatus().  This function gets the state of the
         // person visiting this page and can return one of three states to
         // the callback you provide.  They can be:
@@ -135,17 +135,17 @@
           statusChangeCallback(response);
         });
     };
-    
-    
-    
-    
+
+
+
+
     /*** Questa funzione viene invocata quandno si ricarica la pagina oppure se si preme il pulsante di login come conseguenza della chiamata
      *   all'handler del bottone checkLoginState()  ***/
-    
+
     var resp = null;
-    
+
     function statusChangeCallback(response) {
-        
+
         var getUrlParameter = function getUrlParameter(sParam) {
                 var sPageURL = decodeURIComponent(window.location.search.substring(1)),
                     sURLVariables = sPageURL.split('&'),
@@ -161,69 +161,71 @@
                 }
             };
 
-        
+
         if (response.status === 'connected') {
-            
+
             var fb_access_token = response.authResponse.accessToken;
             var name;
-            
-            console.log('Welcome!  Fetching your information.... ');    
+
+            console.log('Welcome!  Fetching your information.... ');
             FB.api('/me', function(response) {
                 name = response.name;
                 console.log('Successful login for: ' + response.name);
                 document.getElementById('status').innerHTML =
                   'Thanks for logging in, ' + response.name + '!';
              });
-             
+
              //disabilita il bottone associagli l'event listener su click
              var startbutton = document.getElementById("startbutton");
              startbutton.disabled = false;
              document.getElementById("startbutton").addEventListener("click",function(){
-                 
+
                 startbutton.disabled = true;
+
+
                 document.getElementById("computing").innerHTML = "Processing...";
-                
+
                 var sessionId = getUrlParameter('sessionId');
                 console.log(sessionId);
-                
+
                 const url = "https://cors-anywhere.herokuapp.com/http://datascience.ismb.it/beatinabot/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name+"&sessionId="+sessionId;
-                
-                 
+
+
                     $.ajax({
                         url: url,
                         type: 'GET',
                         success: function(response, textStatus, xhr)
                         {
-                            
+
                             console.log(response);
-                            console.log(textStatus);  
+                            console.log(textStatus);
                             document.getElementById("computing").innerHTML = 'Say "continue" to the bot to get your music recommendations!';
                             document.getElementById("computing").style.color = "yellow";
-                           
-                            
+
+
                             //qui conosco il Profilo di personalità Jungiana.
-                            
+
                             obj = JSON.parse(response)
-                            
+
                             mbti = null;
-            
+
                             if (obj.interpretations[0].trait == "Jungian_Personality") {
                                 mbti = obj.interpretations[0].value;
                             } else {
                                 mbti = obj.interpretations[1].value;
                             }
-                           
+
                             JungianTypeResult(mbti);
                             showLikes(obj, mbti);
-                            
+
                             document.getElementById("computing").style.display ="";
                             startbutton.disabled = false;
-                            
+
                         },
                         error: function(XMLHttpRequest, textStatus, errorThrown)
                         {
                             document.getElementById("continue").style.display ="none";
-                          
+
                             if (XMLHttpRequest.readyState == 4) {
                                 // HTTP error (can be checked by XMLHttpRequest.status and XMLHttpRequest.statusText)
                                 document.getElementById("computing").style.color = "red";
@@ -241,31 +243,31 @@
                             }
                             startbutton.disabled = false;
                         }
-                });    
+                });
                  
              });
-    
-            
+
+
         } else {
           // The person is not logged into your app or we are unable to tell.
           document.getElementById('status').innerHTML = 'Please log ' +
             'into this app.';
         }
     }
-    
+
     /*** Handler del bottone Log in. Controlla lo stato del login e chiama la funzione che gestisce cosa fare ***/
-    
+
     function checkLoginState() {
-        
+
         FB.getLoginStatus(function(response) {
           statusChangeCallback(response);
         });
-        
+
     }
-    
+
    function JungianTypeResult(mbti){
-       
-            
+
+
             console.log("inside jungiantyperesult")
             console.log(mbti);
             switch(mbti) {
@@ -286,7 +288,7 @@
                         var caption = "Justin Timberlake, Aretha Franklin, Bjork and Regina Skeptor are famous "+mbti+" musicians.";
                         var img = "assets/images/"+mbti+".jpg";
                         break;
-                        
+
                     case "INFJ":
                         var description = "Seek meaning and connection in ideas, relationships, and material possessions. \n\
                                            Want to understand what motivates people and are insightful about others. Conscientious and committed to their firm values. \n\
@@ -302,14 +304,14 @@
                         var caption = "Jay Z, 50 Cent, Beethoven and Brian May are famous "+mbti+" musicians.";
                         var img = "assets/images/"+mbti+".jpg";
                         break;
-                        
+
                     case "ISTP":
                         var description = "Tolerant and flexible, quiet observers until a problem appears, then act quickly to find workable solutions. \n\
                                            Analyze what makes things work and readily get through large amounts of data to isolate the core of practical problems. \n\
                                            Interested in cause and effect, organize facts using logical principles, value efficiency.";
                         var caption = "Madonna, Amy Winehouse, John Bon Jovi and Eminem are famous "+mbti+" musicians.";
                         var img = "assets/images/"+mbti+".jpg";
-                        
+
                         break;
                     case "ISFP":
                         var description = "Quiet, friendly, sensitive, and kind. Enjoy the present moment, what's going on around them. \n\
@@ -328,13 +330,13 @@
 
                         break;
                     case "INTP":
-                        
+
                         var description = "Seek to develop logical explanations for everything that interests them. Theoretical and abstract, \n\
                                            interested more in ideas than in social interaction. Quiet, contained, flexible, and adaptable. \n\
                                            Have unusual ability to focus in depth to solve problems in their area of interest. Skeptical, sometimes critical, always analytical."
                         var caption = "David Byrne, Robert Fripp (King Crimson), Keith Emerson and Joe Jackson are famous "+mbti+" musicians.";
                         var img = "assets/images/"+mbti+".jpg";
-                        
+
                         break;
                     case "ESTP":
                         var description = "Flexible and tolerant, they take a pragmatic approach focused on immediate results. \n\
@@ -342,7 +344,7 @@
                                            spontaneous, enjoy each moment that they can be active with others. Enjoy material comforts and style. Learn best through doing."
                         var caption = "Pink, Iggy Pop, Axl Rose and James Brown are famous "+mbti+" musicians.";
                         var img = "assets/images/"+mbti+".jpg";
-                        
+
                         break;
                     case "ESFP":
                         var description = "Outgoing, friendly, and accepting. Exuberant lovers of life, people, and material comforts. \n\
@@ -411,17 +413,17 @@
                     default:
                         return "there was an error"
 
-                    } 
-                    
+                    }
+
                     document.getElementById("type").innerHTML = mbti;
                     document.getElementById("description").innerHTML = description;
                     document.getElementById("mus_img").src = img;
                     document.getElementById("caption").innerHTML = caption;
                     document.getElementById("result").style.display = "";
         }
-        
+
 function showLikes(obj, mbti) {
-    
+
     var contrib = obj.contributors;
     var first = null;
     var p1,p2,p3,p4 = null;
@@ -431,7 +433,7 @@ function showLikes(obj, mbti) {
     for (var c of contrib){
         switch(c.trait){
             case "BIG5_Extraversion":
-                
+
                 if(mbti[0] === "I"){
                     first = c.negative;
                     p1 = "Introversion";
@@ -440,9 +442,9 @@ function showLikes(obj, mbti) {
                     p1 = "Extroversion";
                 }
                 break;
-                
+
             case "BIG5_Openness":
-                
+
                 if(mbti[1] === "N"){
                     second = c.positive;
                     p2 = "iNtuition";
@@ -451,20 +453,20 @@ function showLikes(obj, mbti) {
                     p2 = "Sensing";
                 }
                 break;
-                
+
             case "BIG5_Agreeableness":
-                
+
                 if(mbti[2] === "T"){
                     third = c.negative;
                     p3 = "Thinking";
                 }else{
                     third = c.positive;
                     p3 = "Feeling";
-                } 
+                }
                 break;
-            
+
             case "BIG5_Conscientiousness":
-                
+
                 if(mbti[3] === "P"){
                     fourth = c.negative;
                     p4 = "Perceiving";
@@ -472,25 +474,25 @@ function showLikes(obj, mbti) {
                     fourth = c.positive;
                     p4 = "Judging";
                 }
-                break;  
-        }   
+                break;
+        }
     }
-    
+
     //ho i quattro array completati
    /* make the API call */
-   
+
    var table = document.getElementById("mytable");
    var tblBody = document.createElement("tbody");
-   
+
    var row1 = document.createElement("tr");
    for (var id of first){
         FB.api(
             "/"+id+"?fields=picture,name",
             function (response) {
                 if (response && !response.error) {
-                    
+
                     /* handle the result */
-                        
+
                     var obj = response;
 
                     var cell = document.createElement("td");
@@ -504,36 +506,36 @@ function showLikes(obj, mbti) {
                     cell.appendChild(caption);
                     row1.appendChild(cell);
                 }
-            });  
+            });
     }
     //add the last column
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     var text1 = document.createTextNode("Determine your");
     var dimension = document.createTextNode(p1);
-   
+
     var text2 = document.createTextNode("dimension:");
     div.appendChild(text1);
     div.appendChild(document.createElement("BR"));
     div.appendChild(dimension);
     div.appendChild(document.createElement("BR"));
     div.appendChild(text2);
-    
+
     cell.appendChild(div);
     row1.appendChild(cell);
-    
+
     // add the row to the end of the table body
     tblBody.appendChild(row1);
-    
+
    var row2 = document.createElement("tr");
    for (var id of second){
         FB.api(
             "/"+id+"?fields=picture,name",
             function (response) {
                 if (response && !response.error) {
-                    
+
                     /* handle the result */
-                        
+
                     var obj = response;
 
                     var cell = document.createElement("td");
@@ -547,36 +549,36 @@ function showLikes(obj, mbti) {
                     cell.appendChild(caption);
                     row2.appendChild(cell);
                 }
-            });  
+            });
     }
      //add the last column
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     var text1 = document.createTextNode("Determine your");
     var dimension = document.createTextNode(p2);
-   
+
     var text2 = document.createTextNode("dimension:");
     div.appendChild(text1);
     div.appendChild(document.createElement("BR"));
     div.appendChild(dimension);
     div.appendChild(document.createElement("BR"));
     div.appendChild(text2);
-    
+
     cell.appendChild(div);
     row2.appendChild(cell);
-    
+
     // add the row to the end of the table body
     tblBody.appendChild(row2);
-    
+
    var row3 = document.createElement("tr");
    for (var id of third){
         FB.api(
             "/"+id+"?fields=picture,name",
             function (response) {
                 if (response && !response.error) {
-                    
+
                     /* handle the result */
-                        
+
                     var obj = response;
 
                     var cell = document.createElement("td");
@@ -590,36 +592,36 @@ function showLikes(obj, mbti) {
                     cell.appendChild(caption);
                     row3.appendChild(cell);
                 }
-            });  
+            });
     }
      //add the last column
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     var text1 = document.createTextNode("Determine your");
     var dimension = document.createTextNode(p3);
-   
+
     var text2 = document.createTextNode("dimension:");
     div.appendChild(text1);
     div.appendChild(document.createElement("BR"));
     div.appendChild(dimension);
     div.appendChild(document.createElement("BR"));
     div.appendChild(text2);
-    
+
     cell.appendChild(div);
     row3.appendChild(cell);
-    
+
     // add the row to the end of the table body
     tblBody.appendChild(row3);
-    
+
    var row4 = document.createElement("tr");
    for (var id of fourth){
         FB.api(
             "/"+id+"?fields=picture,name",
             function (response) {
                 if (response && !response.error) {
-                    
+
                     /* handle the result */
-                        
+
                     var obj = response;
 
                     var cell = document.createElement("td");
@@ -633,49 +635,49 @@ function showLikes(obj, mbti) {
                     cell.appendChild(caption);
                     row4.appendChild(cell);
                 }
-            });  
+            });
     }
     //add the last column
     var cell = document.createElement("td");
     var div = document.createElement("DIV");
     var text1 = document.createTextNode("Determine your");
     var dimension = document.createTextNode(p4);
-  
+
     var text2 = document.createTextNode("dimension:");
     div.appendChild(text1);
     div.appendChild(document.createElement("BR"));
     div.appendChild(dimension);
     div.appendChild(document.createElement("BR"));
     div.appendChild(text2);
-       
+
     cell.appendChild(div);
     row4.appendChild(cell);
     // add the row to the end of the table body
     tblBody.appendChild(row4);
-    
+
     // put the <tbody> in the <table>
     table.appendChild(tblBody);
 }
-    
-    
-    
+
+
+
  function logout(){
-     
+
             FB.logout(function(response) {
              // user is now logged out
              console.log("Logout effettuato");
              document.getElementById("status").innerHTML = "logout effettuato";
              document.getElementById("startbutton").disabled = true;
 
-            });  
+            });
         }
-    
-    
-    
-    
-         
-                        		
+
+
+
+
+
+
                 </script>
-            
+
 	</body>
 </html>

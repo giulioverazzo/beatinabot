@@ -14,20 +14,20 @@ html, body {
 }
 
 td {
-    
+
     padding:0.3em 0.8em
 }
 
 table{
     margin: 0 auto;
-    
+
 }
 
 table div{
    font-size:0.9em;
    padding-bottom: 1em;
 }
-    
+
 #caption{
     width:70%;
     margin: 0 auto;
@@ -35,10 +35,10 @@ table div{
 #main{
     height:100%
 }
-    
-    
-#startbutton{                 
-    display: inline-block; 
+
+
+#startbutton{
+    display: inline-block;
     background: none;
     border-radius: 6px;
     border: 2px solid #FFFFFF;
@@ -51,7 +51,7 @@ table div{
         color:blue;
         cursor: pointer;
     }
-    
+
 #logo{
    width: 50%;
    max-width: 300px;
@@ -67,8 +67,8 @@ table div{
 #description{
       text-align: justify;
       text-justify: inter-word;
-      margin:0 auto; 
-      padding-top: 0.5em; 
+      margin:0 auto;
+      padding-top: 0.5em;
       padding-bottom: 1.5em
   }
  #mus_img{
@@ -96,13 +96,13 @@ table div{
 }
 
 @media only screen and (max-width: 500px) {
-    
+
     /*Layout for smartphones*/
-    
-    html, body {  
-        
+
+    html, body {
+
         font-size: 10pt;
-        
+
     }
     #description{
         width:85%;
@@ -110,16 +110,19 @@ table div{
     #mus_img{
         max-width: 55%
     }
-    
-   
+    table img{
+        max-width: 50%
+
+    }
+
 }
 
 @media only screen and (min-width: 500px) {
-    
+
      /*Layout for Tablet and PC*/
 
     html, body {
-        font-size: 14pt; 
+        font-size: 14pt;
     }
     #description{
         width:55%;
