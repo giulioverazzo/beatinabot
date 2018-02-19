@@ -74,7 +74,7 @@
                                                         </figure>
 
                                                     </div>
-                                                    <p id="computing" style="color:#1d2129;"></p>
+                                                    <p id="computing"></p>
 
                                                     <div id="error"></div>
 						<div class="push"></div>
@@ -83,7 +83,7 @@
 
 				<!-- Footer -->
 					<footer class="footer">
-                                            <span class="copyright">&copy; Beat in a Bot. Click <a href=license.html>here</a> to check our privacy policy.</span>
+                                            <span class="copyright">&copy; Beat in a Bot. Click <a id="policy_url" href=license.html>here</a> to check our privacy policy.</span>
 					</footer>
 
 			</div>
@@ -200,7 +200,7 @@
 
                             console.log(response);
                             console.log(textStatus);
-                            document.getElementById("computing").innerHTML = 'Go back to the <a href="'+bot_url+'">🤖bot</a> and say him "continue"!';
+                            document.getElementById("computing").innerHTML = '<a href="'+bot_url+'">Say "continue" to me 🤖!</a>';
                             
 
 

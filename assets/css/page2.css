@@ -13,6 +13,26 @@ html, body {
         color:#ffffff;
 }
 
+#policy_url:visited, #policy_url:link{
+    text-decoration:none;
+    color:white;
+}
+#policy_url:hover{
+    color:blue;
+     text-decoration:underline;
+}
+
+#computing a:visited, #computing a:link{
+    border-radius: 6px;
+    border: 2px solid #FFFFFF;
+    padding: 0.4em;
+    text-decoration: none;
+    color:yellow;
+}
+#computing a:hover{
+    color:blue;
+}
+
 td {
 
     padding:0.3em 0.8em
