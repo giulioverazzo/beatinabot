@@ -186,6 +186,7 @@
                 document.getElementById("computing").innerHTML = "Processing...";
 
                 var sessionId = getUrlParameter('sessionId');
+                var bot_url = getUrlParameter('bot_url');
                 console.log(sessionId);
 
                 const url = "https://cors-anywhere.herokuapp.com/http://datascience.ismb.it/beatinabot/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name+"&sessionId="+sessionId;
@@ -199,8 +200,8 @@
 
                             console.log(response);
                             console.log(textStatus);
-                            document.getElementById("computing").innerHTML = 'Say "continue" to the bot to get your music recommendations!';
-                            document.getElementById("computing").style.color = "yellow";
+                            document.getElementById("computing").innerHTML = 'Go back to the <a href="'+bot_url+'">🤖bot</a> and say him "continue"!';
+                            
 
 
                             //qui conosco il Profilo di personalità Jungiana.
