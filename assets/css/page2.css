@@ -13,6 +13,28 @@ html, body {
         color:#ffffff;
 }
 
+#fb-msg-btn{
+    display: inline-block;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding: 12px 16px;
+    margin: 0;
+    background-color: #0084ff;
+    border: 0;
+    border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+a:hover.fb-msg-btn { 
+    background-color: #0268c7; 
+}
+
 
 #policy_url:visited, #policy_url:link{
     text-decoration:none;
