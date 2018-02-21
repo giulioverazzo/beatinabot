@@ -55,14 +55,12 @@
                                                     ></div>
                                                     <div style="padding-top: 0.5em; color:black;" id="status"></div>
                                                     <!--<button style='background: none;' onclick="logout()">logout da facebook</button>-->
-                                                    <p style='font-size: 1.2em'> 2. Those are used to predict your personality profile<p>
-                                                    
-                                                    <button disabled id="startbutton">Start!</button>
-                                                    
-                                                 
-                                                    <br>
+                                                    <p style='font-size: 1.2em'> 2. Those are used to predict your personality profile<p> 
+                                                    <div id='startbutton-div'>
+                                                        <button disabled id="startbutton">Start!</button>
+                                                        <br>
+                                                    </div>
                                                     <p id="computing"></p>
-
                                                     <div id="result" style="display:none">
                                                         
                                                         
@@ -239,9 +237,10 @@
                         {
 
                             console.log(response);
-                            console.log(textStatus);
+                            console.log(textStatus)
                             document.getElementById("computing").innerHTML ='Done! Push the button below and the "Continue" on the bot';
-                            document.getElementById("startbutton").style.display = "none";
+                            document.getElementById("computing").style.color = "yellow";
+                            document.getElementById("startbutton-div").style.display = "none";
 
                             //qui conosco il Profilo di personalità Jungiana.
 
