@@ -164,10 +164,10 @@ table div{
 
     #arrow-div p{
        position: absolute;
-       top: 0px;
-       right: 0px;
+       top: 0em;
+       right: 0em;
        padding-top:2.2em;
-       font-size:12px;
+       font-size:1em;
        width:65%;
        letter-spacing: -0.028em;
        line-height: 1.2em;
@@ -175,12 +175,13 @@ table div{
 
     #arrow{
         position: absolute;
-        top: 0px;
-        right: 0px;
-        padding:0px;
-        font-size:50px;
+        top: 0em;
+        right: 0em;
+        padding:0em;
+        font-size:3.5em;
         padding-top: 0.15em;
     }
+
 
 }
 
