@@ -13,13 +13,35 @@ html, body {
         color:#ffffff;
 }
 
+#arrow-div{
+    position:relative;
+    color: yellow;
+}
+
+#arrow-div p{
+   position: absolute;
+   top: 0px;
+   right: 0px;
+   padding-top:2.2em;
+   font-weight: 300 !important;
+   width:10%;
+}
+
+#arrow{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size:60px;
+    padding-top: 0.15em;
+}
+
 #policy_url:visited, #policy_url:link{
     text-decoration:none;
     color:white;
 }
 #policy_url:hover{
     color:blue;
-     text-decoration:underline;
+    text-decoration:underline;
 }
 
 #computing a:visited, #computing a:link{

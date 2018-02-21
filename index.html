@@ -34,7 +34,11 @@
 	</head>
 	<body>
 			<div id="main">
-				<!-- Header -->
+				<!-- Header -->    
+                                <div style="display:none" id="arrow-div">
+                                    <span id="arrow">&#8593;</span>
+                                    <p><b>Close this window and press Continue on the bot</b></p>
+                                </div>
 					<header id="header">
                                             <div id="container">
 						<img id="logo" src="assets/images/logo.png" alt="Smiley face">
@@ -59,8 +63,12 @@
                                                     <button disabled id="startbutton">Start!</button>
                                                     <br>
 
+                                                    <p id="computing"></p>
+                                                      
                                                     <div id="result" style="display:none">
-                                                        <p id="computing"></p>
+                                                        
+                                                        <p>Scroll down if you want to know more!<p/>    
+                                                       
                                                         <div style="color:#1d2129; font-size: 1.5em"><p>Your Personality Type is: <p id="type" style="color:yellow; text-decoration:underline;"></p></p></div>
                                                         <p id="description"></p>
 
@@ -75,7 +83,7 @@
                                                         </figure>
 
                                                     </div>
-                                                   
+                                                    
 
                                                     <div id="error"></div>
 						<div class="push"></div>
@@ -136,43 +144,7 @@
           statusChangeCallback(response);
         });
     };
-
-    /*** Codice jQuery che fa scrollare la pagina in automatico ***/
-    function backbuttonhandler(){
-        
-        var getUrlParameter = function getUrlParameter(sParam) {
-                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-                    sURLVariables = sPageURL.split('&'),
-                    sParameterName,
-                    i;
-
-                for (i = 0; i < sURLVariables.length; i++) {
-                    sParameterName = sURLVariables[i].split('=');
-
-                    if (sParameterName[0] === sParam) {
-                        return sParameterName[1] === undefined ? true : sParameterName[1];
-                    }
-                }
-            };
-        
-        var sessionId = getUrlParameter('sessionId');
-        const url = "https://cors-anywhere.herokuapp.com/http://datascience.ismb.it/beatinabot/backbutton?sessionId="+sessionId;
-
-        $.ajax({
-            url: url,
-            type: 'GET',
-            success: function(response, textStatus, xhr)
-            {
-
-                window.close();
-
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown)
-            {
-               console.log("Error contacting the server");
-            }
-         });    
-    }
+    
     
     /*** Questa funzione viene invocata quandno si ricarica la pagina oppure se si preme il pulsante di login come conseguenza della chiamata
      *   all'handler del bottone checkLoginState()  ***/
@@ -235,10 +207,10 @@
 
                             console.log(response);
                             console.log(textStatus);
-                            document.getElementById("computing").innerHTML = '<a href="'+bot_url+'">Say "continue" to me 🤖!</a>';
+                            document.getElementById("computing").innerHTML = 'Done!';
+                            document.getElementById("arrow-div").style.display ="";
                             
-
-
+                        
                             //qui conosco il Profilo di personalità Jungiana.
 
                             obj = JSON.parse(response)
@@ -255,7 +227,7 @@
                             showLikes(obj, mbti);
 
                             document.getElementById("computing").style.display ="";
-                            startbutton.disabled = false;
+                           
 
                         },
                         error: function(XMLHttpRequest, textStatus, errorThrown)
