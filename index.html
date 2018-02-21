@@ -34,11 +34,7 @@
 	</head>
 	<body>
 			<div id="main">
-				<!-- Header -->
-                                <div style="display:none" id="arrow-div">
-                                    <span id="arrow">&#8593;</span>
-                                    <p><b>Close this window and press Continue on the bot</b></p>
-                                </div>
+				
 					<header id="header">
                                             <div id="container">
 						<img id="logo" src="assets/images/logo.png" alt="Smiley face">
@@ -66,7 +62,10 @@
                                                     <p id="computing"></p>
 
                                                     <div id="result" style="display:none">
-
+                                                        
+                                                        
+                                                        <button onclick="closewindow();">Back to bot!</button>
+                                                        
                                                         <p>Scroll down if you want to know more!<p/>
 
                                                         <div style="color:#1d2129; font-size: 1.5em"><p>Your Personality Type is: <p id="type" style="color:yellow; text-decoration:underline;"></p></p></div>
@@ -127,13 +126,7 @@
 
     
     window.extAsyncInit = function () {
-      // the Messenger Extensions JS SDK is done loading
-        
-        MessengerExtensions.requestCloseBrowser(function success() {
-
-        }, function error(err) {
-    });
-      
+    // the Messenger Extensions JS SDK is done loading  
     /*  
     MessengerExtensions.getUserID(function success(uids) {
             var psid = uids.psid;//This is your page scoped sender_id
@@ -143,6 +136,15 @@
         });
      */   
     };
+    
+    function closeWindow(){
+        MessengerExtensions.requestCloseBrowser(function success() {
+
+            }, function error(err) {
+                
+            }
+        );
+    }
 
 
     /***inizializza Facebook SDK e verifica lo stato del login***/
@@ -236,9 +238,7 @@
 
                             console.log(response);
                             console.log(textStatus);
-                            document.getElementById("computing").innerHTML ='<a href="newhtml.html">Closewindow</a>';
-                            document.getElementById("arrow-div").style.display ="";
-
+                            document.getElementById("computing").innerHTML ='Done! Push the button below and the "Continue" on the bot';
 
                             //qui conosco il Profilo di personalità Jungiana.
 

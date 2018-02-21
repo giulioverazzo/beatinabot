@@ -13,27 +13,6 @@ html, body {
         color:#ffffff;
 }
 
-#arrow-div{
-    position:relative;
-    color: yellow;
-}
-
-#arrow-div p{
-   position: absolute;
-   top: 0px;
-   right: 0px;
-   padding-top:2.2em;
-   font-weight: 300 !important;
-   width:10%;
-}
-
-#arrow{
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    font-size:60px;
-    padding-top: 0.15em;
-}
 
 #policy_url:visited, #policy_url:link{
     text-decoration:none;
@@ -157,32 +136,7 @@ table div{
 
     }
     
-    #arrow-div{
-        position:relative;
-        color: yellow;
-    }
-
-    #arrow-div p{
-       position: absolute;
-       top: 0em;
-       right: 0em;
-       padding-top:2.2em;
-       font-size:1em;
-       width:65%;
-       letter-spacing: -0.028em;
-       line-height: 1.2em;
-    }
-
-    #arrow{
-        position: absolute;
-        top: 0em;
-        right: 0em;
-        padding:0em;
-        font-size:3.5em;
-        padding-top: 0.15em;
-    }
-
-
+  
 }
 
 @media only screen and (min-width: 500px) {
