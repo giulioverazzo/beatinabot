@@ -136,8 +136,8 @@
         });
     };
 
-
-
+    /*** Codice jQuery che fa scrollare la pagina in automatico ***/
+    
 
     /*** Questa funzione viene invocata quandno si ricarica la pagina oppure se si preme il pulsante di login come conseguenza della chiamata
      *   all'handler del bottone checkLoginState()  ***/
@@ -187,6 +187,7 @@
 
                 var sessionId = getUrlParameter('sessionId');
                 var bot_url = getUrlParameter('bot_url');
+                var bot_url = "https://www.messenger.com/closeWindow/?display_text=continue"
                 console.log(sessionId);
 
                 const url = "https://cors-anywhere.herokuapp.com/http://datascience.ismb.it/beatinabot/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name+"&sessionId="+sessionId;
