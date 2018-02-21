@@ -114,6 +114,35 @@
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+    
+    /* Carica l'SDK di Messenger Extensions*/
+    
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, "script", "Messenger"));
+
+    
+    window.extAsyncInit = function () {
+      // the Messenger Extensions JS SDK is done loading
+        
+        MessengerExtensions.requestCloseBrowser(function success() {
+
+        }, function error(err) {
+    });
+      
+    /*  
+    MessengerExtensions.getUserID(function success(uids) {
+            var psid = uids.psid;//This is your page scoped sender_id
+            alert(psid);
+        },function error(err) {
+            alert("Messenger Extension Error: " + err);
+        });
+     */   
+    };
 
 
     /***inizializza Facebook SDK e verifica lo stato del login***/
