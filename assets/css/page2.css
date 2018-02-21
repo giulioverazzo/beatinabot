@@ -156,6 +156,31 @@ table div{
         max-width: 100%
 
     }
+    
+    #arrow-div{
+        position:relative;
+        color: yellow;
+    }
+
+    #arrow-div p{
+       position: absolute;
+       top: 0px;
+       right: 0px;
+       padding-top:2.2em;
+       font-size:12px;
+       width:65%;
+       letter-spacing: -0.028em;
+       line-height: 1.2em;
+    }
+
+    #arrow{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding:0px;
+        font-size:50px;
+        padding-top: 0.15em;
+    }
 
 }
 
