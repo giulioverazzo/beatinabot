@@ -60,6 +60,7 @@
                                                     <br>
 
                                                     <div id="result" style="display:none">
+                                                        <button id="backbutton" onClick="backbuttonhandler()">Back to the bot!</button>
                                                         <div style="color:#1d2129; font-size: 1.5em"><p>Your Personality Type is: <p id="type" style="color:yellow; text-decoration:underline;"></p></p></div>
                                                         <p id="description"></p>
 
@@ -137,8 +138,27 @@
     };
 
     /*** Codice jQuery che fa scrollare la pagina in automatico ***/
-    
+    function backbuttonhandler(){
+        
+        var sessionId = getUrlParameter('sessionId');
+        const url = "https://cors-anywhere.herokuapp.com/http://datascience.ismb.it/beatinabot/backbutton?sessionId="+sessionId;
 
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function(response, textStatus, xhr)
+            {
+
+                window.close();
+
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+               console.log("Error contacting the server");
+            }
+         });    
+    }
+    
     /*** Questa funzione viene invocata quandno si ricarica la pagina oppure se si preme il pulsante di login come conseguenza della chiamata
      *   all'handler del bottone checkLoginState()  ***/
 
@@ -187,7 +207,6 @@
 
                 var sessionId = getUrlParameter('sessionId');
                 var bot_url = getUrlParameter('bot_url');
-                var bot_url = "https://www.messenger.com/closeWindow/?display_text=continue"
                 console.log(sessionId);
 
                 const url = "https://cors-anywhere.herokuapp.com/http://datascience.ismb.it/beatinabot/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name+"&sessionId="+sessionId;
