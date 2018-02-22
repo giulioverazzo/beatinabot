@@ -131,8 +131,8 @@
     
     function closeWindow(){
         MessengerExtensions.requestCloseBrowser(function success() {
-                
-                MessengerExtensions.getUserID(function success(uids) {
+                /*
+               MessengerExtensions.getUserID(function success(uids) {
                     var psid = uids.psid;//This is your page scoped sender_id
                         $.ajax({
                             url: 'https://e5171524.ngrok.io/messenger?psid='+psid,
@@ -149,6 +149,7 @@
                 },function error(err) {
                     alert("Messenger Extension Error: " + err);
                 });
+                */
             }, function error(err) {
                 
             }
