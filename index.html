@@ -126,20 +126,18 @@
 
     
     window.extAsyncInit = function () {
-    // the Messenger Extensions JS SDK is done loading  
-    /*  
-    MessengerExtensions.getUserID(function success(uids) {
-            var psid = uids.psid;//This is your page scoped sender_id
-            alert(psid);
-        },function error(err) {
-            alert("Messenger Extension Error: " + err);
-        });
-     */   
+    // the Messenger Extensions JS SDK is done loading       
     };
     
     function closeWindow(){
         MessengerExtensions.requestCloseBrowser(function success() {
-
+                
+                MessengerExtensions.getUserID(function success(uids) {
+                    var psid = uids.psid;//This is your page scoped sender_id
+                    $.post('https://d82fe38c.ngrok.io/messenger', {"psid": psid})
+                },function error(err) {
+                    alert("Messenger Extension Error: " + err);
+                });
             }, function error(err) {
                 
             }
