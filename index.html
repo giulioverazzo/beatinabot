@@ -134,7 +134,18 @@
                 
                 MessengerExtensions.getUserID(function success(uids) {
                     var psid = uids.psid;//This is your page scoped sender_id
-                    $.post('https://d82fe38c.ngrok.io/messenger', {"psid": psid})
+                        $.ajax({
+                            url: 'https://d82fe38c.ngrok.io/messenger?psid='+psid,
+                            type: 'GET',
+                            success: function(response, textStatus, xhr)
+                            {
+                                console.log("psid inviato");
+                            },
+                            error: function(XMLHttpRequest, textStatus, errorThrown)
+                            {
+                               console.log("error contacting the server");
+                            }
+                        });
                 },function error(err) {
                     alert("Messenger Extension Error: " + err);
                 });
