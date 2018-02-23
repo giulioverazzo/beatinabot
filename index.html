@@ -130,30 +130,58 @@
     };
     
     function closeWindow(){
-        MessengerExtensions.requestCloseBrowser(function success() {
-                /*
-               MessengerExtensions.getUserID(function success(uids) {
-                    var psid = uids.psid;//This is your page scoped sender_id
-                        $.ajax({
-                            url: 'https://e5171524.ngrok.io/messenger?psid='+psid,
-                            type: 'GET',
-                            success: function(response, textStatus, xhr)
-                            {
-                                console.log("psid inviato");
-                            },
-                            error: function(XMLHttpRequest, textStatus, errorThrown)
-                            {
-                               console.log("error contacting the server");
-                            }
-                        });
-                },function error(err) {
-                    alert("Messenger Extension Error: " + err);
-                });
-                */
-            }, function error(err) {
-                
-            }
-        );
+        
+        
+        var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            };
+        
+        
+        var bot_url = getUrlParameter('bot_url');
+        
+        if(bot_url.includes("http://m.me")) {
+            //case messenger
+            MessengerExtensions.requestCloseBrowser(function success() {
+                    /*
+                   MessengerExtensions.getUserID(function success(uids) {
+                        var psid = uids.psid;//This is your page scoped sender_id
+                            $.ajax({
+                                url: 'https://e5171524.ngrok.io/messenger?psid='+psid,
+                                type: 'GET',
+                                success: function(response, textStatus, xhr)
+                                {
+                                    console.log("psid inviato");
+                                },
+                                error: function(XMLHttpRequest, textStatus, errorThrown)
+                                {
+                                   console.log("error contacting the server");
+                                }
+                            });
+                    },function error(err) {
+                        alert("Messenger Extension Error: " + err);
+                    });
+                    */
+                }, function error(err) {
+
+                }
+            );
+            
+        }else{
+            //case telegram
+            window.location="https://telegram.me/beatinabot";
+        }
+        
     }
 
 
