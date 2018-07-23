@@ -196,19 +196,6 @@
           version    : 'v2.10' // use graph api version 2.8
         });
 
-        // Now that we've initialized the JavaScript SDK, we call
-        // FB.getLoginStatus().  This function gets the state of the
-        // person visiting this page and can return one of three states to
-        // the callback you provide.  They can be:
-        //
-        // 1. Logged into your app ('connected')
-        // 2. Logged into Facebook, but not your app ('not_authorized')
-        // 3. Not logged into Facebook and can't tell if they are logged into
-        //    your app or not.
-        //
-        // These three cases are handled in the callback function.
-
-        //lo stato verificato viene passato a statusChangeCallback
         FB.getLoginStatus(function(response) {
           statusChangeCallback(response);
         });
@@ -265,7 +252,7 @@
                 var bot_url = getUrlParameter('bot_url');
                 console.log(sessionId);
 
-                const url = "https://cors-anywhere.herokuapp.com/http://datascience.ismb.it/beatinabot/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name+"&sessionId="+sessionId;
+                const url = "https://datascience.ismb.it/beatinabot/hello?userid="+response.authResponse.userID+"&accessToken="+fb_access_token+"&name="+name+"&sessionId="+sessionId;
 
 
                     $.ajax({
@@ -302,7 +289,7 @@
                         error: function(XMLHttpRequest, textStatus, errorThrown)
                         {
                             document.getElementById("continue").style.display ="none";
-
+                            console.log(XMLHttpRequest.status+""+XMLHttpRequest.statusText);
                             if (XMLHttpRequest.readyState == 4) {
                                 // HTTP error (can be checked by XMLHttpRequest.status and XMLHttpRequest.statusText)
                                 document.getElementById("computing").style.color = "red";
