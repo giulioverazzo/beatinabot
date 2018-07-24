@@ -61,10 +61,12 @@
                                                         <br>
                                                     </div>
                                                     <p id="computing"></p>
+                                                    <button id='fb-msg-btn' style="display:none" onclick="closeWindow();">Back to the bot!🤖</button>
                                                     <div id="result" style="display:none">
                                                         
-                                                        
+                                                        <!--
                                                         <button id='fb-msg-btn' onclick="closeWindow();">Back to the bot!🤖</button>
+                                                        -->
                                                         
                                                         <p>Scroll down if you want to know more!<p/>
 
@@ -268,7 +270,8 @@
                             document.getElementById("startbutton-div").style.display = "none";
 
                             //qui conosco il Profilo di personalità Jungiana.
-
+                            
+                            /*
                             obj = JSON.parse(response)
 
                             mbti = null;
@@ -281,10 +284,10 @@
 
                             JungianTypeResult(mbti);
                             showLikes(obj, mbti);
-
+                            */
                             document.getElementById("computing").style.display ="";
-
-
+                            document.getElementById("fb-msg-btn").style.display="";                            
+                            
                         },
                         error: function(XMLHttpRequest, textStatus, errorThrown)
                         {
@@ -736,12 +739,6 @@ function showLikes(obj, mbti) {
             });
         }
 
-
-
-
-
-
-                </script>
-
+        </script>
 	</body>
 </html>
